@@ -16,7 +16,8 @@ import java.util.ArrayList;
 public class MainActivity extends Activity {
 
     // Se quiser nuvem, troque por uma URL .m3u (http é mais compatível no KitKat)
-    private static final String PLAYLIST_URL = ""; // ex: "http://seu-host/channels.m3u"
+    private static final String PLAYLIST_URL =
+    "http://getxc.top/get.php?username=joao2025@@@&password=joao20252025&type=m3u_plus&output=hls";
 
     private ListView listView;
     private ArrayList<M3UParser.Item> items = new ArrayList<M3UParser.Item>();
