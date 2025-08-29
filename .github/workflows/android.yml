@@ -57,17 +57,16 @@ jobs:
       - name: Sanity: show tree & gradle files
         run: |
           set -eux
-          echo "== TREE =="; find . -maxdepth 5 -type f -printf "%P\n" | sort
-          echo "== settings.gradle =="; sed -n '1,200p' settings.gradle || true
-          echo "== root build.gradle =="; sed -n '1,200p' build.gradle || true
-          echo "== app/build.gradle =="; sed -n '1,200p' app/build.gradle || true
-          echo "== Manifest =="; sed -n '1,200p' app/src/main/AndroidManifest.xml || true
+          echo "== TREE =="; find . -maxdepth 5 -type f | sort
+          echo "== settings.gradle =="; head -n 50 settings.gradle || true
+          echo "== root build.gradle =="; head -n 50 build.gradle || true
+          echo "== app/build.gradle =="; head -n 50 app/build.gradle || true
+          echo "== Manifest =="; head -n 50 app/src/main/AndroidManifest.xml || true
 
       - name: Build debug APK (capture full logs)
         run: |
           set -euxo pipefail
           ./gradle-7.2/bin/gradle clean :app:assembleDebug --stacktrace --info --no-daemon | tee build.log
-          echo "GRADLE_EXIT=$?" | tee -a build.log
 
       - name: Upload build log
         if: always()
