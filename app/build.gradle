@@ -1,7 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 31
+    namespace "com.futanium.iptv"
+
+    // Use compileSdk antigo para combinar com o toolchain e evitar o erro "33x"
+    compileSdkVersion 19
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "com.futanium.iptv"
@@ -13,21 +17,24 @@ android {
 
     buildTypes {
         release {
+            // mantemos simples por enquanto
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            shrinkResources false
+            // Se quiser ofuscar depois:
+            // proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
             debuggable true
         }
     }
 
-    // evita exigir androidx/appcompat
+    // Java 8 OK no AGP 7.0.4
     compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
-    // zero dependências externas: tudo nativo
+    // zero dependências externas — tudo com APIs nativas
 }
