@@ -1,4 +1,4 @@
-name: Android CI (APK debug)
+name: Build APK (no-wrapper, ultra-leve)
 
 on:
   push:
@@ -13,16 +13,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Java 11
+      - name: Set up JDK 11
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "11"
 
-      - name: Install Android SDK
+      - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Accept licenses & install platforms
+      - name: Accept licenses & install SDK components
         run: |
           yes | sdkmanager --licenses
           sdkmanager "platforms;android-31" "build-tools;31.0.0" "platform-tools"
@@ -38,9 +38,10 @@ jobs:
         env:
           ANDROID_HOME: ${{ env.ANDROID_SDK_ROOT }}
         run: |
+          source "$HOME/.sdkman/bin/sdkman-init.sh"
           gradle assembleDebug
 
-      - name: Upload APK
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: futanium-iptv-lite-debug
