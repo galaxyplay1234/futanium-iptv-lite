@@ -1,0 +1,30 @@
+name: Diagnose Android Project
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Show repo tree (4 levels)
+        run: |
+          sudo apt-get update && sudo apt-get install -y tree
+          tree -L 4 -a
+
+      - name: Show key files
+        run: |
+          echo "== settings.gradle =="
+          [ -f settings.gradle ] && cat settings.gradle || echo "MISSING"
+          echo "== root build.gradle =="
+          [ -f build.gradle ] && cat build.gradle || echo "MISSING"
+          echo "== app/build.gradle =="
+          [ -f app/build.gradle ] && cat app/build.gradle || echo "MISSING"
+          echo "== AndroidManifest.xml =="
+          [ -f app/src/main/AndroidManifest.xml ] && sed -n '1,160p' app/src/main/AndroidManifest.xml || echo "MISSING"
+
+      - name: Fail on purpose so we can read logs easily
+        run: exit 1
