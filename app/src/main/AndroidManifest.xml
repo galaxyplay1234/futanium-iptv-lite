@@ -9,7 +9,7 @@
     <application
         android:label="Futanium IPTV Lite"
         android:icon="@android:drawable/sym_def_app_icon"
-        android:hardwareAccelerated="false"   <!-- DESLIGADO: evita crash de GPU -->
+        android:hardwareAccelerated="false"   
         android:vmSafeMode="true"             <!-- Modo Dalvik seguro -->
         android:largeHeap="true"              <!-- Folga extra de RAM -->
         android:theme="@style/AppTheme">
