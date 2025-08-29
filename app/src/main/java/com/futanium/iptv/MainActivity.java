@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
 
     // SUA PLAYLIST NA NUVEM (HLS):
     private static final String PLAYLIST_URL =
-        "http://getxc.top/get.php?username=joao2025@@@&password=joao20252025&type=m3u_plus&output=hls";
+        "https://raw.githubusercontent.com/galaxyplay1234/futanium-iptv-lite/refs/heads/main/playlist.m3u";
 
     private ListView listView;
     private final Handler ui = new Handler(Looper.getMainLooper());
