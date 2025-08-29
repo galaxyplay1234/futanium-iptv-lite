@@ -21,11 +21,16 @@ public class ChannelAdapter extends ArrayAdapter<M3UParser.Item> {
     public ChannelAdapter(Context ctx, List<M3UParser.Item> data) {
         super(ctx, 0, data);
         loader = new ImageLoader();
-        // ~48dp → pixels
         float dp = 48f;
         logoSizePx = (int)TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, dp,
                 ctx.getResources().getDisplayMetrics());
+    }
+
+    // Atualiza os dados sem recriar o adapter (suave)
+    public void setData(List<M3UParser.Item> data) {
+        clear();
+        if (data != null && !data.isEmpty()) addAll(data);
     }
 
     @Override
@@ -41,7 +46,6 @@ public class ChannelAdapter extends ArrayAdapter<M3UParser.Item> {
         M3UParser.Item it = getItem(position);
 
         r.title.setText(it.name != null ? it.name : "(sem nome)");
-
         r.logo.setImageDrawable(new ColorDrawable(Color.DKGRAY));
         if (it.logo != null && it.logo.length() > 0) {
             loader.load(it.logo, r.logo, logoSizePx);
@@ -53,7 +57,6 @@ public class ChannelAdapter extends ArrayAdapter<M3UParser.Item> {
         LinearLayout root;
         ImageView logo;
         TextView title;
-
         Row(Context ctx, int logoSize) {
             root = new LinearLayout(ctx);
             root.setOrientation(LinearLayout.HORIZONTAL);
@@ -75,10 +78,9 @@ public class ChannelAdapter extends ArrayAdapter<M3UParser.Item> {
                     0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
             root.addView(title);
         }
-
         private int dp(Context c, int d){
             return (int)TypedValue.applyDimension(
-                    TypedValue.COMPLEX_UNIT_DIP, d, c.getResources().getDisplayMetrics());
+                TypedValue.COMPLEX_UNIT_DIP, d, c.getResources().getDisplayMetrics());
         }
     }
 }
