@@ -1,0 +1,7 @@
+#EXTM3U
+#EXT-X-SESSION-DATA:DATA-ID="com.xui.1_5_12r2"
+#EXTINF:-1 tvg-id="a&e.br" tvg-name="A&E HD+" tvg-logo="http://im.robx9.top:80/images/a2a50e6364e5e8b1af46d43d60750367.png" group-title="Canais | ✨ Filmes e Séries",A&E HD+
+http://getxc.top:80/joao2025@@@/joao20252025/1017.m3u8
+#EXTINF:-1 tvg-id="a&e.br" tvg-name="A&E HD" tvg-logo="http://im.robx9.top:80/images/a2a50e6364e5e8b1af46d43d60750367.png" group-title="Canais | ✨ Filmes e Séries",A&E HD
+http://getxc.top:80/joao2025@@@/joao20252025/20.m3u8
+#EXTINF:-1 tvg-id="a&e.br" tvg-name="A&E FHD" tvg-logo="http://im.robx9.top:80/images/a2a50e6364e5e8b1af46d43d60750367.png" 
