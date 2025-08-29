@@ -12,22 +12,26 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
+// >>> IMPORTS para HTTPS/TLS <<<
+import javax.net.ssl.HttpsURLConnection;
+
 public class MainActivity extends Activity {
 
-    // SUA PLAYLIST NA NUVEM (HLS):
+    // SUA PLAYLIST NA NUVEM (GitHub RAW - formato correto)
     private static final String PLAYLIST_URL =
-        "https://raw.githubusercontent.com/galaxyplay1234/futanium-iptv-lite/refs/heads/main/playlist.m3u";
+        "https://raw.githubusercontent.com/galaxyplay1234/futanium-iptv-lite/main/playlist.m3u";
 
     private ListView listView;
     private final Handler ui = new Handler(Looper.getMainLooper());
     private ArrayList<M3UParser.Item> items = new ArrayList<M3UParser.Item>();
+
+    // (opcional, ajuda em TVs antigas com bug de keep-alive)
+    static { System.setProperty("http.keepAlive", "false"); }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +71,6 @@ public class MainActivity extends Activity {
 
             // 1) tenta rede
             out = fetchFromUrl(PLAYLIST_URL);
-
-            if (conn instanceof HttpsURLConnection) {
-    HttpsURLConnection https = (HttpsURLConnection) conn;
-    https.setSSLSocketFactory(new TLS12SocketFactory());
-}
 
             if (out == null || out.isEmpty()) throw new Exception("Lista vazia da nuvem.");
 
@@ -136,9 +135,19 @@ public class MainActivity extends Activity {
             c.setInstanceFollowRedirects(true);
             c.setConnectTimeout(10000);
             c.setReadTimeout(20000);
-            c.setRequestProperty("User-Agent", "FutaniumIPTV-Lite/1.0 (KitKat)");
-            // Alguns painéis exigem:
-            // c.setRequestProperty("Referer", "http://getxc.top/");
+            c.setRequestProperty("User-Agent", "Mozilla/5.0 (Linux; Android 4.4; FutaniumIPTV) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36");
+
+            // >>> se for HTTPS, força TLS 1.2 <<<
+            if (c instanceof HttpsURLConnection) {
+                HttpsURLConnection https = (HttpsURLConnection) c;
+                https.setSSLSocketFactory(new TLS12SocketFactory());
+                // Se necessário para testar SNI/host (não recomendado em prod):
+                // https.setHostnameVerifier(new javax.net.ssl.HostnameVerifier() {
+                //     @Override public boolean verify(String h, javax.net.ssl.SSLSession s) { return true; }
+                // });
+            }
+            // <<< fim TLS 1.2 >>>
+
             int code = c.getResponseCode();
             if (code >= 400) throw new Exception("HTTP " + code);
             is = c.getInputStream();
@@ -150,4 +159,4 @@ public class MainActivity extends Activity {
             try { if (c != null) c.disconnect(); } catch (Exception ignored) {}
         }
     }
-} 
+}
