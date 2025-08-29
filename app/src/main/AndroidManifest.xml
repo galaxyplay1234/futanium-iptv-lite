@@ -9,20 +9,27 @@
     <application
         android:label="Futanium IPTV Lite"
         android:icon="@android:drawable/sym_def_app_icon"
-        android:hardwareAccelerated="true"
+        android:hardwareAccelerated="false"   <!-- DESLIGADO: evita crash de GPU -->
+        android:vmSafeMode="true"             <!-- Modo Dalvik seguro -->
+        android:largeHeap="true"              <!-- Folga extra de RAM -->
         android:theme="@style/AppTheme">
 
         <activity
             android:name=".MainActivity"
-            android:label="Canais">
+            android:label="Canais"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
+        <!-- Diagnóstico: deixe DESABILITADO por enquanto.
+             Quando a lista abrir estável, reative removendo android:enabled="false" -->
         <activity
             android:name=".PlayerActivity"
+            android:enabled="false"
+            android:exported="false"
             android:screenOrientation="sensorLandscape"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="Player"/>
