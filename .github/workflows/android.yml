@@ -13,11 +13,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up JDK 11
+      # 1) JDK 17 só para sdkmanager
+      - name: Set up JDK 17 (for sdkmanager)
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: "11"
+          java-version: "17"
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
@@ -26,6 +27,13 @@ jobs:
         run: |
           yes | sdkmanager --licenses
           sdkmanager "platforms;android-31" "build-tools;31.0.0" "platform-tools"
+
+      # 2) Troca para JDK 11 para compilar com AGP 7.0.4/Gradle 7.2
+      - name: Set up JDK 11 (for build)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "11"
 
       - name: Install Gradle 7.2 (no wrapper)
         run: |
