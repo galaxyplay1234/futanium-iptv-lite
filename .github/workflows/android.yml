@@ -1,4 +1,4 @@
-name: Build APK (KitKat)
+name: Build APK (sem wrapper)
 
 on:
   push:
@@ -17,13 +17,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up JDK 17 (needed by latest cmdline-tools)
+      # sdkmanager novo precisa de JDK 17
+      - name: Set up JDK 17 (for sdkmanager)
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "17"
 
-      # SDK limpo (sem plataformas 33x)
+      # SDK LIMPO (evita pacotes 33x)
       - name: Prepare clean Android SDK
         run: |
           mkdir -p "$ANDROID_SDK_ROOT"
@@ -32,11 +33,7 @@ jobs:
           mkdir -p cmdline-tools/latest
           unzip -q cmdtools.zip -d cmdline-tools/latest
           rm -f cmdtools.zip
-          echo "sdk.dir=$ANDROID_SDK_ROOT" > $GITHUB_WORKSPACE/local.properties
           yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses
-
-      - name: Install required SDK packages
-        run: |
           $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager \
             "platform-tools" \
             "platforms;android-19" \
@@ -44,13 +41,24 @@ jobs:
             "extras;android;m2repository" \
             "extras;google;m2repository"
 
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
+      # Baixa o Gradle 7.2 (sem wrapper)
+      - name: Download Gradle 7.2
+        run: |
+          curl -L -o gradle.zip https://services.gradle.org/distributions/gradle-7.2-bin.zip
+          unzip -q gradle.zip
+          rm -f gradle.zip
+
+      # Build usa Java 11 com AGP 7.0.4
+      - name: Set up JDK 11 (for build)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "11"
 
       - name: Build debug APK (verbose)
         run: |
-          ./gradlew --version
-          ./gradlew clean :app:assembleDebug --stacktrace --info --no-daemon
+          ./gradle-7.2/bin/gradle --version
+          ./gradle-7.2/bin/gradle clean :app:assembleDebug --stacktrace --info --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
