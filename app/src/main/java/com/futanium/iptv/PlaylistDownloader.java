@@ -29,6 +29,26 @@ public class PlaylistDownloader {
     }
 
     /**
+     * Garante que o cache esteja fresco: se não existir ou estiver mais velho que maxAgeMs,
+     * baixa novamente da URL e atualiza o arquivo.
+     */
+    public static void ensureFresh(Context ctx, String urlStr, long maxAgeMs) throws Exception {
+        File cache = getCacheFile(ctx);
+        long now = System.currentTimeMillis();
+        if (cache.exists()) {
+            long age = now - cache.lastModified();
+            if (age < maxAgeMs) {
+                // Ainda dentro do prazo — não baixa
+                return;
+            }
+        }
+        // Cache inexistente ou velho — baixa de novo
+        downloadToCache(ctx, urlStr);
+        // Garante mtime atualizado
+        getCacheFile(ctx).setLastModified(System.currentTimeMillis());
+    }
+
+    /**
      * Baixa a M3U da URL e salva de forma atômica no cache interno.
      * Se virar HTTPS em algum redirect, força TLS 1.2 (KitKat).
      */
