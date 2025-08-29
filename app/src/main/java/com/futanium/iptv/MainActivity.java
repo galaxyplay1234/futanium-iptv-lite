@@ -97,7 +97,8 @@ public class MainActivity extends Activity {
         try {
             // Atualiza cache (não falha app se der erro)
             try {
-                PlaylistDownloader.downloadToCache(this, PLAYLIST_URL);
+                // 8 horas = 28.800.000 ms
+PlaylistDownloader.ensureFresh(this, PLAYLIST_URL, 28_800_000L);
             } catch (Throwable e) {
                 Log.w("IPTV", "Não atualizou da nuvem: " + (e.getMessage()!=null?e.getMessage():e));
             }
