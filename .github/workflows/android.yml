@@ -1,4 +1,4 @@
-name: Build APK (no-wrapper, ultra-leve)
+name: Build APK
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
           yes | sdkmanager --licenses
           sdkmanager "platforms;android-31" "build-tools;31.0.0" "platform-tools"
 
-      - name: Install Gradle 7.2 (SDKMAN)
+      - name: Install Gradle 7.2 (no wrapper)
         run: |
           curl -s "https://get.sdkman.io" | bash
           source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -39,9 +39,9 @@ jobs:
           ANDROID_HOME: ${{ env.ANDROID_SDK_ROOT }}
         run: |
           source "$HOME/.sdkman/bin/sdkman-init.sh"
-          gradle assembleDebug
+          gradle --no-daemon assembleDebug
 
-      - name: Upload APK artifact
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: futanium-iptv-lite-debug
