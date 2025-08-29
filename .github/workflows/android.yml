@@ -1,4 +1,4 @@
-name: Build APK (debug logs)
+name: Build APK (safe)
 
 on:
   push:
@@ -17,65 +17,68 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up JDK 17 (for sdkmanager)
+      # JDK 17 para sdkmanager
+      - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "17"
 
-      - name: Prepare clean Android SDK (19 + 28.0.3)
-        run: |
-          set -eux
-          mkdir -p "$ANDROID_SDK_ROOT"
-          cd "$ANDROID_SDK_ROOT"
-          curl -L -o cmdtools.zip https://dl.google.com/android/repository/commandlinetools-linux-12266719_latest.zip
-          mkdir -p cmdline-tools/latest
-          unzip -q cmdtools.zip -d cmdline-tools/latest
-          rm -f cmdtools.zip
-          yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses
-          $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager \
-            "platform-tools" \
-            "platforms;android-19" \
-            "build-tools;28.0.3" \
-            "extras;android;m2repository" \
-            "extras;google;m2repository"
+      # SDK limpo (sem 33x)
+      - name: Make SDK dir
+        run: mkdir -p "$ANDROID_SDK_ROOT"
+      - name: Download cmdline-tools
+        run: curl -L -o "$ANDROID_SDK_ROOT/cmdtools.zip" https://dl.google.com/android/repository/commandlinetools-linux-12266719_latest.zip
+      - name: Unzip cmdline-tools
+        run: mkdir -p "$ANDROID_SDK_ROOT/cmdline-tools/latest" && unzip -q "$ANDROID_SDK_ROOT/cmdtools.zip" -d "$ANDROID_SDK_ROOT/cmdline-tools/latest"
+      - name: Clean zip
+        run: rm -f "$ANDROID_SDK_ROOT/cmdtools.zip"
+      - name: Accept licenses
+        run: yes | "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" --licenses
+      - name: Install platform-tools
+        run: "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "platform-tools"
+      - name: Install platform android-19
+        run: "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "platforms;android-19"
+      - name: Install build-tools 28.0.3
+        run: "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "build-tools;28.0.3"
+      - name: Install extra m2 (android)
+        run: "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "extras;android;m2repository"
+      - name: Install extra m2 (google)
+        run: "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "extras;google;m2repository"
 
+      # Baixa Gradle 7.2 (sem wrapper)
       - name: Download Gradle 7.2
-        run: |
-          set -eux
-          curl -L -o gradle.zip https://services.gradle.org/distributions/gradle-7.2-bin.zip
-          unzip -q gradle.zip
-          rm -f gradle.zip
-          ./gradle-7.2/bin/gradle --version
+        run: curl -L -o gradle.zip https://services.gradle.org/distributions/gradle-7.2-bin.zip
+      - name: Unzip Gradle 7.2
+        run: unzip -q gradle.zip && rm -f gradle.zip
+      - name: Show Gradle version
+        run: ./gradle-7.2/bin/gradle --version
 
-      - name: Set up JDK 11 (for build with AGP 7.0.4)
+      # JDK 11 para compilar com AGP 7.0.4
+      - name: Set up JDK 11
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "11"
 
-      - name: Sanity: show tree & gradle files
-        run: |
-          set -eux
-          echo "== TREE =="; find . -maxdepth 5 -type f | sort
-          echo "== settings.gradle =="; head -n 50 settings.gradle || true
-          echo "== root build.gradle =="; head -n 50 build.gradle || true
-          echo "== app/build.gradle =="; head -n 50 app/build.gradle || true
-          echo "== Manifest =="; head -n 50 app/src/main/AndroidManifest.xml || true
+      # Sanidade: mostrar arquivos principais
+      - name: Show tree
+        run: find . -maxdepth 5 -type f | sort
+      - name: Show settings.gradle
+        run: cat settings.gradle
+      - name: Show root build.gradle
+        run: cat build.gradle
+      - name: Show app/build.gradle
+        run: cat app/build.gradle
+      - name: Show manifest
+        run: cat app/src/main/AndroidManifest.xml
 
-      - name: Build debug APK (capture full logs)
-        run: |
-          set -euxo pipefail
-          ./gradle-7.2/bin/gradle clean :app:assembleDebug --stacktrace --info --no-daemon | tee build.log
+      # Build (logs no console)
+      - name: Build debug APK
+        run: ./gradle-7.2/bin/gradle clean :app:assembleDebug --stacktrace --info --no-daemon
 
-      - name: Upload build log
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: gradle-build-log
-          path: build.log
-
-      - name: Upload APK (if built)
+      # Artefatos
+      - name: Upload APK
         if: always()
         uses: actions/upload-artifact@v4
         with:
