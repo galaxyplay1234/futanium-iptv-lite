@@ -1,4 +1,4 @@
-name: Build APK
+name: Build APK (sem wrapper, SDK 19)
 
 on:
   push:
@@ -8,27 +8,69 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      ANDROID_SDK_ROOT: ${{ github.workspace }}/android-sdk
+      ANDROID_HOME: ${{ github.workspace }}/android-sdk
+      JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # JDK 17 só para sdkmanager
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      # SDK limpo (só o necessário p/ target 19)
+      - name: Prepare clean Android SDK
+        run: |
+          mkdir -p "$ANDROID_SDK_ROOT"
+          cd "$ANDROID_SDK_ROOT"
+          curl -L -o cmdtools.zip https://dl.google.com/android/repository/commandlinetools-linux-12266719_latest.zip
+          mkdir -p cmdline-tools/latest
+          unzip -q cmdtools.zip -d cmdline-tools/latest
+          rm -f cmdtools.zip
+          yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses
+          $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager \
+            "platform-tools" \
+            "platforms;android-19" \
+            "build-tools;28.0.3" \
+            "extras;android;m2repository" \
+            "extras;google;m2repository"
+
+      # Baixa Gradle 7.2 (sem wrapper)
+      - name: Download Gradle 7.2
+        run: |
+          curl -L -o gradle.zip https://services.gradle.org/distributions/gradle-7.2-bin.zip
+          unzip -q gradle.zip
+          rm -f gradle.zip
+          ./gradle-7.2/bin/gradle --version
+
+      # JDK 11 para compilar com AGP 7.0.4
       - name: Set up JDK 11
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "11"
 
-      - name: Install SDK 19 + build-tools 28.0.3
+      # (opcional) mostrar estrutura
+      - name: Sanity check
         run: |
-          yes | sdkmanager --licenses
-          sdkmanager "platform-tools" "platforms;android-19" "build-tools;28.0.3"
+          echo "== tree =="; find . -maxdepth 4 -type f | sort
+          echo "== settings.gradle =="; cat settings.gradle
+          echo "== root build.gradle =="; head -n 60 build.gradle
+          echo "== app/build.gradle =="; head -n 120 app/build.gradle
 
+      # Build usando o Gradle baixado
       - name: Build debug APK
-        run: ./gradlew assembleDebug
+        run: ./gradle-7.2/bin/gradle clean :app:assembleDebug --stacktrace --info --no-daemon
 
       - name: Upload APK
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: app-debug
+          name: futanium-iptv-lite-debug
           path: app/build/outputs/apk/debug/app-debug.apk
