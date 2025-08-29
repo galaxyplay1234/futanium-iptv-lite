@@ -16,7 +16,6 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
-import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,7 +29,6 @@ import java.util.LinkedHashSet;
 
 public class MainActivity extends Activity {
 
-    // URL do painel (HTTP)
     private static final String PLAYLIST_URL =
         "http://getxc.top/get.php?username=joao2025@@@&password=joao20252025&type=m3u_plus&output=hls";
 
@@ -40,6 +38,7 @@ public class MainActivity extends Activity {
     private EditText searchBox;
 
     private final Handler ui = new Handler(Looper.getMainLooper());
+    private final Handler debounce = new Handler(Looper.getMainLooper());
 
     private ArrayList<M3UParser.Item> itemsAll = new ArrayList<M3UParser.Item>();
     private ArrayList<M3UParser.Item> itemsFiltered = new ArrayList<M3UParser.Item>();
@@ -48,19 +47,21 @@ public class MainActivity extends Activity {
     private String currentGroup = "Todos";
     private String currentQuery = "";
 
+    // geração para cancelar filtros antigos (evita "piscar")
+    private volatile int filterGen = 0;
+    private Runnable pendingFilter;
+
     static { System.setProperty("http.keepAlive", "false"); }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // ROOT
         LinearLayout root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
         root.setLayoutParams(new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
-        // NAVBAR (HorizontalScrollView + LinearLayout)
         tabsScroll = new HorizontalScrollView(this);
         tabsScroll.setHorizontalScrollBarEnabled(false);
         tabsScroll.setLayoutParams(new LinearLayout.LayoutParams(
@@ -72,7 +73,6 @@ public class MainActivity extends Activity {
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
         tabsScroll.addView(tabsBar);
 
-        // SEARCH BOX
         searchBox = new EditText(this);
         searchBox.setHint("Buscar canal…");
         searchBox.setSingleLine(true);
@@ -86,7 +86,6 @@ public class MainActivity extends Activity {
         searchBox.setTextColor(0xFFFFFFFF);
         searchBox.setHintTextColor(0xFF888888);
 
-        // LIST
         listView = new ListView(this);
         listView.setFastScrollEnabled(true);
         listView.setFastScrollAlwaysVisible(false);
@@ -98,13 +97,12 @@ public class MainActivity extends Activity {
         root.addView(listView);
         setContentView(root);
 
-        // placeholder enquanto carrega
-        ArrayList<M3UParser.Item> placeholder = new ArrayList<M3UParser.Item>();
-        placeholder.add(new M3UParser.Item("Carregando lista...", null));
-        adapter = new ChannelAdapter(this, placeholder);
+        // placeholder e adapter único (reutilizado sempre)
+        itemsFiltered.clear();
+        itemsFiltered.add(new M3UParser.Item("Carregando lista...", null));
+        adapter = new ChannelAdapter(this, itemsFiltered);
         listView.setAdapter(adapter);
 
-        // click na lista → Player
         listView.setOnItemClickListener((p, v, pos, id) -> {
             if (itemsFiltered == null || itemsFiltered.isEmpty()) return;
             if (pos >= itemsFiltered.size()) pos = itemsFiltered.size() - 1;
@@ -115,74 +113,52 @@ public class MainActivity extends Activity {
             startActivity(it);
         });
 
-        // BUSCA: atualiza enquanto digita
+        // Busca com DEBOUNCE (300ms) + filtro em background
         searchBox.addTextChangedListener(new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override public void onTextChanged(CharSequence s, int start, int before, int count) {}
             @Override public void afterTextChanged(Editable s) {
                 currentQuery = s != null ? s.toString() : "";
-                applyFilterAndRefresh();
+                scheduleFilter(); // debounced
             }
         });
-        // Enter/Busca esconde IME e mantém foco na lista
-        searchBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_SEARCH || (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
-                    listView.requestFocus();
-                    return true;
-                }
-                return false;
-            }
-        });
-        // Long-press limpa a busca (atalho)
-        searchBox.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override public boolean onLongClick(View v) {
-                searchBox.setText("");
+        searchBox.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_SEARCH ||
+                (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
+                listView.requestFocus();
                 return true;
             }
+            return false;
         });
+        searchBox.setOnLongClickListener(v -> { searchBox.setText(""); return true; });
 
         new Thread(this::loadAndBuild).start();
     }
 
     private void loadAndBuild() {
         try {
-            // Atualiza cache (não quebra se falhar)
-            try {
-                // 8 horas = 28_800_000 ms
-PlaylistDownloader.ensureFresh(this, PLAYLIST_URL, 28_800_000L);
-            } catch (Throwable e) {
-                Log.w("IPTV", "Não atualizou da nuvem: " + (e.getMessage()!=null?e.getMessage():e));
-            }
+            // atualiza no máx. a cada 8h
+            PlaylistDownloader.ensureFresh(this, PLAYLIST_URL, 28_800_000L);
 
-            // Lê do cache
-            if (PlaylistDownloader.hasCache(this)) {
-                InputStream is = PlaylistDownloader.openCached(this);
-                itemsAll = M3UParser.parse(is);
-                is.close();
-            } else {
-                throw new Exception("Sem cache ainda");
-            }
+            InputStream is = PlaylistDownloader.openCached(this);
+            itemsAll = M3UParser.parse(is);
+            is.close();
 
             if (itemsAll == null || itemsAll.isEmpty()) throw new Exception("Cache vazio");
 
-            // Ordena por nome
             Collections.sort(itemsAll, (a,b) -> {
                 String an = a.name != null ? a.name : "";
                 String bn = b.name != null ? b.name : "";
                 return an.compareToIgnoreCase(bn);
             });
 
-            // Constrói categorias
             final ArrayList<String> groups = buildGroups(itemsAll);
-
-            // Aplica filtro inicial
             itemsFiltered = filter(itemsAll, currentGroup, currentQuery);
 
             ui.post(() -> {
                 buildTabs(groups);
-                adapter = new ChannelAdapter(MainActivity.this, itemsFiltered);
-                listView.setAdapter(adapter);
+                adapter.setData(itemsFiltered);   // reaproveita adapter
+                adapter.notifyDataSetChanged();
                 listView.requestFocus();
                 Toast.makeText(MainActivity.this,
                         "Lista carregada (" + itemsAll.size() + " canais)", Toast.LENGTH_SHORT).show();
@@ -195,11 +171,20 @@ PlaylistDownloader.ensureFresh(this, PLAYLIST_URL, 28_800_000L);
         }
     }
 
-    // ===== Filtro por categoria + texto =====
-    private void applyFilterAndRefresh() {
-        itemsFiltered = filter(itemsAll, currentGroup, currentQuery);
-        adapter = new ChannelAdapter(MainActivity.this, itemsFiltered);
-        listView.setAdapter(adapter);
+    // agenda filtro com debounce
+    private void scheduleFilter() {
+        final int myGen = ++filterGen;
+        if (pendingFilter != null) debounce.removeCallbacks(pendingFilter);
+        pendingFilter = () -> new Thread(() -> {
+            ArrayList<M3UParser.Item> out = filter(itemsAll, currentGroup, currentQuery);
+            // se não for a geração mais nova, descarta
+            if (myGen != filterGen) return;
+            ui.post(() -> {
+                adapter.setData(out);
+                adapter.notifyDataSetChanged();
+            });
+        }).start();
+        debounce.postDelayed(pendingFilter, 300);
     }
 
     private ArrayList<String> buildGroups(ArrayList<M3UParser.Item> list) {
@@ -232,13 +217,12 @@ PlaylistDownloader.ensureFresh(this, PLAYLIST_URL, 28_800_000L);
         return out;
     }
 
-    // normaliza (remove acentos/caixa) pra busca mais “inteligente”
     private String normalize(String s) {
         if (s == null) return "";
         String t = s.trim().toLowerCase();
         try {
             t = Normalizer.normalize(t, Normalizer.Form.NFD)
-                    .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+                .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
         } catch (Throwable ignore) {}
         return t;
     }
@@ -246,7 +230,6 @@ PlaylistDownloader.ensureFresh(this, PLAYLIST_URL, 28_800_000L);
     private void buildTabs(ArrayList<String> groups) {
         tabsBar.removeAllViews();
         int padH = dp(12), padV = dp(10);
-
         for (String g : groups) {
             final String label = g;
             TextView tab = new TextView(this);
@@ -261,12 +244,10 @@ PlaylistDownloader.ensureFresh(this, PLAYLIST_URL, 28_800_000L);
             lp.rightMargin = dp(8);
             tab.setLayoutParams(lp);
 
-            tab.setOnClickListener(new View.OnClickListener() {
-                @Override public void onClick(View v) {
-                    currentGroup = label;
-                    applyFilterAndRefresh();
-                    buildTabs(groups); // atualiza seleção visual
-                }
+            tab.setOnClickListener(v -> {
+                currentGroup = label;
+                scheduleFilter();   // usa o mesmo debounce (suave)
+                buildTabs(groups);
             });
 
             tabsBar.addView(tab);
