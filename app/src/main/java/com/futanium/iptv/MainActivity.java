@@ -68,6 +68,11 @@ public class MainActivity extends Activity {
             // 1) tenta rede
             out = fetchFromUrl(PLAYLIST_URL);
 
+            if (conn instanceof HttpsURLConnection) {
+    HttpsURLConnection https = (HttpsURLConnection) conn;
+    https.setSSLSocketFactory(new TLS12SocketFactory());
+}
+
             if (out == null || out.isEmpty()) throw new Exception("Lista vazia da nuvem.");
 
             items = out;
