@@ -122,27 +122,94 @@ public class MainActivity extends Activity {
     }
 
     private ArrayList<M3UParser.Item> fetchFromUrl(String urlStr) throws Exception {
-        HttpURLConnection c = null;
-        InputStream is = null;
-        try {
-            URL url = new URL(urlStr);
-            HttpURLConnection.setFollowRedirects(true);
-            c = (HttpURLConnection) url.openConnection();
-            c.setInstanceFollowRedirects(true);
-            c.setConnectTimeout(10000);
-            c.setReadTimeout(20000);
-            c.setRequestProperty("User-Agent", "FutaniumIPTV-Lite/1.0 (KitKat)");
-            // Alguns painéis exigem:
-            // c.setRequestProperty("Referer", "http://getxc.top/");
-            int code = c.getResponseCode();
-            if (code >= 400) throw new Exception("HTTP " + code);
-            is = c.getInputStream();
+    HttpURLConnection conn = null;
+    InputStream is = null;
 
-            // Usa parser linha-a-linha (super leve)
-            return M3UParser.parse(is);
+    // alguns firmwares KK têm bug com keepAlive
+    System.setProperty("http.keepAlive", "false");
+
+    // laço de redirect manual (até 5 hops)
+    String current = urlStr;
+    for (int hop = 0; hop < 5; hop++) {
+        try {
+            URL url = new URL(current);
+            HttpURLConnection.setFollowRedirects(false);
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setInstanceFollowRedirects(false);
+            conn.setConnectTimeout(12000);
+            conn.setReadTimeout(25000);
+
+            // headers que muitos painéis exigem
+            conn.setRequestProperty("User-Agent",
+                    "Mozilla/5.0 (Linux; Android 4.4; FutaniumIPTV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0 Mobile Safari/537.36");
+            conn.setRequestProperty("Accept", "*/*");
+            conn.setRequestProperty("Accept-Encoding", "gzip,deflate,identity");
+            conn.setRequestProperty("Connection", "close");
+            conn.setRequestProperty("Referer", "http://getxc.top/"); // <- importante p/ alguns painéis
+
+            int code = conn.getResponseCode();
+
+            // trata redirects (301/302/303/307/308)
+            if (code == 301 || code == 302 || code == 303 || code == 307 || code == 308) {
+                String loc = conn.getHeaderField("Location");
+                if (loc == null || loc.length() == 0)
+                    throw new Exception("Redirect sem Location");
+                // fallback: se mandou pra https e a TV falhar depois, vamos tentar http mais abaixo
+                current = loc;
+                try { conn.disconnect(); } catch (Exception ignored) {}
+                conn = null;
+                continue; // próximo hop
+            }
+
+            if (code >= 400) throw new Exception("HTTP " + code);
+
+            is = conn.getInputStream();
+
+            // se vier gzip/deflate, desembrulha
+            String enc = conn.getHeaderField("Content-Encoding");
+            if (enc != null) {
+                enc = enc.toLowerCase();
+                if (enc.contains("gzip")) {
+                    is = new java.util.zip.GZIPInputStream(is);
+                } else if (enc.contains("deflate")) {
+                    is = new java.util.zip.InflaterInputStream(is, new java.util.zip.Inflater(true));
+                }
+            }
+
+            // parse direto do stream
+            ArrayList<M3UParser.Item> out = M3UParser.parse(is);
+            is.close(); is = null;
+            conn.disconnect(); conn = null;
+            return out;
+
+        } catch (javax.net.ssl.SSLHandshakeException ssl) {
+            // se o redirect levou a HTTPS moderno (TLS 1.2+) e falhou, tenta forçar HTTP
+            if (current.startsWith("https://")) {
+                String http = "http://" + current.substring("https://".length());
+                current = http;
+                // tenta de novo no próximo loop
+                try { if (is != null) is.close(); } catch (Exception ignored) {}
+                try { if (conn != null) conn.disconnect(); } catch (Exception ignored) {}
+                is = null; conn = null;
+                continue;
+            }
+            throw ssl;
+        } catch (Exception e) {
+            // se falhou e a URL atual é https, tenta versão http uma vez
+            if (current.startsWith("https://")) {
+                String http = "http://" + current.substring("https://".length());
+                current = http;
+                try { if (is != null) is.close(); } catch (Exception ignored) {}
+                try { if (conn != null) conn.disconnect(); } catch (Exception ignored) {}
+                is = null; conn = null;
+                continue;
+            }
+            throw e;
         } finally {
             try { if (is != null) is.close(); } catch (Exception ignored) {}
-            try { if (c != null) c.disconnect(); } catch (Exception ignored) {}
+            try { if (conn != null) conn.disconnect(); } catch (Exception ignored) {}
         }
     }
+
+    throw new Exception("Excesso de redirects");
 }
