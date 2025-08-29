@@ -8,10 +8,6 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
-/**
- * Habilita TLS 1.2 no Android 4.4.x (KitKat), sem dependências externas.
- * Baseado em técnica comum de "force TLSv1.2" para HttpsURLConnection.
- */
 public class TLS12SocketFactory extends SSLSocketFactory {
 
     private final SSLSocketFactory delegate;
@@ -26,18 +22,17 @@ public class TLS12SocketFactory extends SSLSocketFactory {
         }
     }
 
-    private Socket enableTLS12(Socket socket) {
-        if (socket instanceof SSLSocket) {
-            SSLSocket s = (SSLSocket) socket;
+    private Socket enableTLS12(Socket s) {
+        if (s instanceof SSLSocket) {
             try {
-                s.setEnabledProtocols(new String[] { "TLSv1.2", "TLSv1.1", "TLSv1" });
+                ((SSLSocket) s).setEnabledProtocols(new String[]{"TLSv1.2","TLSv1.1","TLSv1"});
             } catch (Exception ignored) {}
         }
-        return socket;
+        return s;
     }
 
-    @Override public String[] getDefaultCipherSuites() { return delegate.getDefaultCipherSuites(); }
-    @Override public String[] getSupportedCipherSuites() { return delegate.getSupportedCipherSuites(); }
+    @Override public String[] getDefaultCipherSuites()  { return delegate.getDefaultCipherSuites(); }
+    @Override public String[] getSupportedCipherSuites(){ return delegate.getSupportedCipherSuites(); }
 
     @Override public Socket createSocket(Socket s, String host, int port, boolean autoClose) throws IOException {
         return enableTLS12(delegate.createSocket(s, host, port, autoClose));
