@@ -1,9 +1,9 @@
 name: Sync IPTV Playlist to GitHub
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch: {}        # permite rodar manualmente
   schedule:
-    - cron: "0 */8 * * *"   # a cada 8 horas
+    - cron: "0 */8 * * *"      # roda a cada 8 horas
 
 permissions:
   contents: write
@@ -11,50 +11,38 @@ permissions:
 jobs:
   sync:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Download playlist from panel
+      - name: Fetch playlist from PANEL
         env:
           PANEL_URL: ${{ secrets.PANEL_URL }}
         run: |
-          set -euxo pipefail
-          # baixa com headers que muitos painéis exigem
-          curl -fsSL --retry 5 --retry-delay 3 \
+          set -eux
+          echo "Baixando do painel: $PANEL_URL"
+          curl -L -sS \
             -H 'User-Agent: Mozilla/5.0 (Linux; Android 4.4; FutaniumIPTV)' \
             -H 'Accept: */*' \
             -H 'Referer: http://getxc.top/' \
-            "${PANEL_URL}" -o playlist.tmp
-
-          # sanity checks básicos
-          test -s playlist.tmp
-          head -c 12 playlist.tmp | grep -qi '#EXTM3U' || { echo "Não parece M3U"; exit 1; }
-
-          # normaliza EOL e remove trailing spaces (opcional)
-          sed -e 's/\r$//' -e 's/[ \t]*$//' playlist.tmp > playlist.m3u
-          rm -f playlist.tmp
+            "$PANEL_URL" -o playlist.m3u
+          head -n 10 playlist.m3u
 
       - name: Commit if changed
         run: |
-          set -eux
           git config user.name  "playlist-bot"
           git config user.email "playlist-bot@users.noreply.github.com"
 
           if git diff --quiet -- playlist.m3u; then
-            echo "Sem mudanças na playlist."
+            echo "Nenhuma mudança detectada"
             exit 0
           fi
-
           git add playlist.m3u
           TS="$(date -u +'%Y-%m-%d %H:%M:%S UTC')"
-          git commit -m "chore: update playlist.m3u (${TS})"
+          git commit -m "update playlist ($TS)"
           git push
 
-      - name: Print RAW URL for the app
-        run: |
-          echo "RAW URL:"
-          echo "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/playlist.m3u"
+      - name: RAW URL para usar no app
+        run: echo "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/playlist.m3u"
