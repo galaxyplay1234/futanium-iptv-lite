@@ -1,0 +1,60 @@
+name: Sync IPTV Playlist to GitHub
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 */8 * * *"   # a cada 8 horas
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download playlist from panel
+        env:
+          PANEL_URL: ${{ secrets.PANEL_URL }}
+        run: |
+          set -euxo pipefail
+          # baixa com headers que muitos painéis exigem
+          curl -fsSL --retry 5 --retry-delay 3 \
+            -H 'User-Agent: Mozilla/5.0 (Linux; Android 4.4; FutaniumIPTV)' \
+            -H 'Accept: */*' \
+            -H 'Referer: http://getxc.top/' \
+            "${PANEL_URL}" -o playlist.tmp
+
+          # sanity checks básicos
+          test -s playlist.tmp
+          head -c 12 playlist.tmp | grep -qi '#EXTM3U' || { echo "Não parece M3U"; exit 1; }
+
+          # normaliza EOL e remove trailing spaces (opcional)
+          sed -e 's/\r$//' -e 's/[ \t]*$//' playlist.tmp > playlist.m3u
+          rm -f playlist.tmp
+
+      - name: Commit if changed
+        run: |
+          set -eux
+          git config user.name  "playlist-bot"
+          git config user.email "playlist-bot@users.noreply.github.com"
+
+          if git diff --quiet -- playlist.m3u; then
+            echo "Sem mudanças na playlist."
+            exit 0
+          fi
+
+          git add playlist.m3u
+          TS="$(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+          git commit -m "chore: update playlist.m3u (${TS})"
+          git push
+
+      - name: Print RAW URL for the app
+        run: |
+          echo "RAW URL:"
+          echo "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/playlist.m3u"
