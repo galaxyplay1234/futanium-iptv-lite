@@ -20,9 +20,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -68,34 +70,30 @@ public class MainActivity extends Activity {
 
         listView = new ListView(this);
 
-        // ===== Header com categorias (adicionar APENAS UMA VEZ) =====
+        // ===== Header com categorias (adicionar somente uma vez) =====
         catScroll = new HorizontalScrollView(this);
         catScroll.setHorizontalScrollBarEnabled(false);
         catScroll.setLayoutParams(new ListView.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-
         catBar = new LinearLayout(this);
         catBar.setOrientation(LinearLayout.HORIZONTAL);
         int pad = dp(8);
         catBar.setPadding(pad, pad, pad, pad);
         catScroll.addView(catBar, new HorizontalScrollView.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-
         listView.addHeaderView(catScroll, null, false);
+
+        // Adapter vazio já setado (não trocamos mais o adapter)
+        channelsAdapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_list_item_1, filteredNames
+        );
+        listView.setAdapter(channelsAdapter);
 
         root.addView(listView, new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         setContentView(root);
 
-        // Placeholder
-        ArrayList<String> initial = new ArrayList<String>();
-        initial.add("Carregando lista...");
-        channelsAdapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_list_item_1, initial
-        );
-        listView.setAdapter(channelsAdapter);
-
-        // Clique em canal (compensa header)
+        // Clique (compensa header)
         listView.setOnItemClickListener((p, v, pos, id) -> {
             int idx = pos - listView.getHeaderViewsCount();
             if (idx < 0 || idx >= filtered.size()) return;
@@ -105,6 +103,11 @@ public class MainActivity extends Activity {
             startActivity(it);
         });
 
+        // placeholder
+        filteredNames.clear();
+        filteredNames.add("Carregando lista...");
+        channelsAdapter.notifyDataSetChanged();
+
         new Thread(this::loadAllSafe).start();
     }
 
@@ -113,11 +116,36 @@ public class MainActivity extends Activity {
        ======================= */
     private void loadAllSafe() {
         try {
-            String text = fetchTextSmart(PLAYLIST_URL);
-            if (TextUtils.isEmpty(text) || !text.trim().toUpperCase(Locale.US).contains("#EXTM3U")) {
-                throw new Exception("Playlist inválida/vazia da nuvem.");
+            File temp = downloadToTempFile(PLAYLIST_URL);
+
+            // Passo 1: contar categorias (leve, streaming)
+            catCounts.clear();
+            itemCats.clear();
+            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(temp), "UTF-8"));
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (!line.startsWith("#EXTINF:")) continue;
+                String cat = extractGroupTitle(line);
+                if (cat == null || cat.length() == 0) cat = "Sem Categoria";
+                itemCats.add(cat);
+                Integer old = catCounts.get(cat);
+                catCounts.put(cat, (old == null) ? 1 : (old + 1));
             }
-            buildFromText(text);
+            br.close();
+
+            // Passo 2: parse dos canais
+            InputStream is = new FileInputStream(temp);
+            items = M3UParser.parse(is);
+            is.close();
+            temp.delete();
+
+            // alinhamento defensivo
+            if (itemCats.size() != items.size()) {
+                int n = Math.min(itemCats.size(), items.size());
+                while (itemCats.size() > n) itemCats.remove(itemCats.size() - 1);
+                while (items.size() > n) items.remove(items.size() - 1);
+            }
+
             ui.post(() -> {
                 renderCategoryHeader();
                 applyFilter("Todos");
@@ -126,82 +154,83 @@ public class MainActivity extends Activity {
 
         } catch (Throwable e) {
             Log.e("IPTV", "Falha rede: " + e.getMessage(), e);
-
-            try {
-                InputStream is = getAssets().open("channels.m3u");
-                String text = readAll(is);
-                is.close();
-                if (TextUtils.isEmpty(text) || !text.trim().toUpperCase(Locale.US).contains("#EXTM3U")) {
-                    throw new Exception("assets vazio/sem #EXTM3U");
-                }
-                buildFromText(text);
-                ui.post(() -> {
-                    renderCategoryHeader();
-                    applyFilter("Todos");
-                    Toast.makeText(MainActivity.this, "Sem internet — usando lista local.", Toast.LENGTH_LONG).show();
-                });
-
-            } catch (Throwable t2) {
-                Log.e("IPTV", "Falha assets: " + t2.getMessage(), t2);
-
-                String demo =
-                        "#EXTM3U\n" +
-                        "#EXTINF:-1 group-title=\"Demo\",Demo Bunny\n" +
-                        "http://184.72.239.149/vod/smil:BigBuckBunny.smil/playlist.m3u8\n" +
-                        "#EXTINF:-1 group-title=\"Demo\",Apple BipBop\n" +
-                        "http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8\n";
-                try { buildFromText(demo); } catch (Exception ignore) {}
-                ui.post(() -> {
-                    renderCategoryHeader();
-                    applyFilter("Todos");
-                    Toast.makeText(MainActivity.this, "Falha total — canais de teste.", Toast.LENGTH_LONG).show();
-                });
-            }
+            fallbackLoad();
         }
     }
 
-    /** Lê o texto e monta categorias + canais (mantendo ordem). */
-    private void buildFromText(String m3uText) throws Exception {
-        // Categorias
-        catCounts = new LinkedHashMap<String, Integer>();
-        itemCats = new ArrayList<String>();
+    private void fallbackLoad() {
+        try {
+            InputStream is = getAssets().open("channels.m3u");
+            // contar categorias
+            BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            String line;
+            catCounts.clear();
+            itemCats.clear();
+            ArrayList<String> lines = new ArrayList<String>();
+            while ((line = br.readLine()) != null) {
+                lines.add(line);
+                if (line.startsWith("#EXTINF:")) {
+                    String cat = extractGroupTitle(line);
+                    if (cat == null || cat.length() == 0) cat = "Sem Categoria";
+                    itemCats.add(cat);
+                    Integer old = catCounts.get(cat);
+                    catCounts.put(cat, (old == null) ? 1 : (old + 1));
+                }
+            }
+            br.close();
+            // parse
+            StringBuilder sb = new StringBuilder();
+            for (String s : lines) { sb.append(s).append('\n'); }
+            InputStream is2 = new ByteArrayInputStream(sb.toString().getBytes("UTF-8"));
+            items = M3UParser.parse(is2);
+            is2.close();
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(
-                new ByteArrayInputStream(m3uText.getBytes("UTF-8")), "UTF-8"));
-        String line;
-        while ((line = br.readLine()) != null) {
-            if (!line.startsWith("#EXTINF:")) continue;
-            String cat = extractGroupTitle(line);
-            if (cat == null || cat.length() == 0) cat = "Sem Categoria";
-            itemCats.add(cat);
-            Integer old = catCounts.get(cat);
-            catCounts.put(cat, (old == null) ? 1 : (old + 1));
-        }
-        br.close();
+            if (itemCats.size() != items.size()) {
+                int n = Math.min(itemCats.size(), items.size());
+                while (itemCats.size() > n) itemCats.remove(itemCats.size() - 1);
+                while (items.size() > n) items.remove(items.size() - 1);
+            }
 
-        // Canais via M3UParser
-        InputStream is = new ByteArrayInputStream(m3uText.getBytes("UTF-8"));
-        items = M3UParser.parse(is);
-        is.close();
+            ui.post(() -> {
+                renderCategoryHeader();
+                applyFilter("Todos");
+                Toast.makeText(MainActivity.this, "Sem internet — usando lista local.", Toast.LENGTH_LONG).show();
+            });
 
-        if (itemCats.size() != items.size()) {
-            int n = Math.min(itemCats.size(), items.size());
-            while (itemCats.size() > n) itemCats.remove(itemCats.size() - 1);
-            while (items.size() > n) items.remove(items.size() - 1);
+        } catch (Throwable t2) {
+            Log.e("IPTV", "Falha assets: " + t2.getMessage(), t2);
+            // demo mínima
+            String demo =
+                    "#EXTM3U\n" +
+                    "#EXTINF:-1 group-title=\"Demo\",Demo Bunny\n" +
+                    "http://184.72.239.149/vod/smil:BigBuckBunny.smil/playlist.m3u8\n" +
+                    "#EXTINF:-1 group-title=\"Demo\",Apple BipBop\n" +
+                    "http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8\n";
+            try {
+                InputStream is3 = new ByteArrayInputStream(demo.getBytes("UTF-8"));
+                items = M3UParser.parse(is3);
+                is3.close();
+                itemCats.clear();
+                itemCats.add("Demo");
+                itemCats.add("Demo");
+                catCounts.clear();
+                catCounts.put("Demo", 2);
+            } catch (Exception ignore) { }
+            ui.post(() -> {
+                renderCategoryHeader();
+                applyFilter("Todos");
+                Toast.makeText(MainActivity.this, "Falha total — canais de teste.", Toast.LENGTH_LONG).show();
+            });
         }
     }
 
     private String extractGroupTitle(String extinfLine) {
-        int idx = indexOfIgnoreCase(extinfLine, "group-title=\"");
+        int idx = extinfLine.toLowerCase(Locale.US).indexOf("group-title=\"");
         if (idx < 0) return null;
         int start = idx + "group-title=\"".length();
         int end = extinfLine.indexOf('"', start);
         if (end > start) return extinfLine.substring(start, end).trim();
         return null;
-    }
-
-    private int indexOfIgnoreCase(String s, String needle) {
-        return s.toLowerCase(Locale.US).indexOf(needle.toLowerCase(Locale.US));
     }
 
     /* =======================
@@ -231,9 +260,8 @@ public class MainActivity extends Activity {
         chip.setGravity(Gravity.CENTER_VERTICAL);
         chip.setTextSize(14);
 
-        // fundo arredondado
         GradientDrawable bg = new GradientDrawable();
-        bg.setColor(0xFF262C38); // cinza escuro
+        bg.setColor(0xFF262C38);
         bg.setCornerRadius(dp(14));
         chip.setBackgroundDrawable(bg);
         chip.setTextColor(0xFFEFEFEF);
@@ -247,7 +275,6 @@ public class MainActivity extends Activity {
             applyFilter(cat);
             highlightSelected(cat);
         });
-
         catBar.addView(chip);
     }
 
@@ -260,7 +287,6 @@ public class MainActivity extends Activity {
                 TextView tv = (TextView) v;
                 boolean sel = tv.getText().toString().startsWith(cat + " ");
                 tv.setTypeface(null, sel ? Typeface.BOLD : Typeface.NORMAL);
-                // muda levemente a cor
                 GradientDrawable g = (GradientDrawable) tv.getBackground();
                 g.setColor(sel ? 0xFF2E3646 : 0xFF262C38);
             }
@@ -285,77 +311,72 @@ public class MainActivity extends Activity {
                 }
             }
         }
-
-        channelsAdapter = new ArrayAdapter<String>(
-                MainActivity.this, android.R.layout.simple_list_item_1, filteredNames
-        );
-        // IMPORTANTE: não adicionar header de novo!
-        listView.setAdapter(channelsAdapter);
-        listView.addHeaderView(catScroll, null, false); // garante que o header fique (alguns devices removem ao setAdapter)
-        listView.setAdapter(channelsAdapter);           // reatacha o adapter após recolocar o header
+        // ATENÇÃO: não trocamos adapter nem header; só notificamos
         channelsAdapter.notifyDataSetChanged();
     }
 
     /* =======================
-       REDE (texto, gzip, TLS)
+       Download streaming → arquivo
        ======================= */
-    private String fetchTextSmart(String urlStr) throws Exception {
+    private File downloadToTempFile(String urlStr) throws Exception {
         HttpURLConnection conn = null;
         InputStream is = null;
+        File out = File.createTempFile("m3u_", ".tmp", getCacheDir());
+        FileOutputStream fos = new FileOutputStream(out);
 
-        URL url = new URL(urlStr);
-        conn = (HttpURLConnection) url.openConnection();
-        conn.setInstanceFollowRedirects(true); // deixa o HttpURLConnection seguir redirects
-        conn.setConnectTimeout(20000);
-        conn.setReadTimeout(45000);
+        try {
+            URL url = new URL(urlStr);
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setInstanceFollowRedirects(true);
+            conn.setConnectTimeout(20000);
+            conn.setReadTimeout(45000);
+            conn.setRequestProperty("User-Agent",
+                    "Mozilla/5.0 (Linux; Android 4.4; FutaniumIPTV) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36");
+            conn.setRequestProperty("Accept", "*/*");
+            conn.setRequestProperty("Accept-Encoding", "gzip, deflate");
+            conn.setRequestProperty("Connection", "close");
 
-        conn.setRequestProperty("User-Agent",
-                "Mozilla/5.0 (Linux; Android 4.4; FutaniumIPTV) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36");
-        conn.setRequestProperty("Accept", "*/*");
-        conn.setRequestProperty("Accept-Encoding", "gzip, deflate");
-        conn.setRequestProperty("Connection", "close");
-
-        if (conn instanceof HttpsURLConnection) {
-            try {
-                ((HttpsURLConnection) conn).setSSLSocketFactory(new TLS12SocketFactory());
-            } catch (Throwable ignore) { }
-        }
-
-        int code = conn.getResponseCode();
-        if (code >= 400) throw new Exception("HTTP " + code);
-
-        is = conn.getInputStream();
-
-        String enc = conn.getHeaderField("Content-Encoding");
-        if (enc != null) {
-            enc = enc.toLowerCase(Locale.US);
-            if (enc.contains("gzip")) {
-                is = new java.util.zip.GZIPInputStream(is);
-            } else if (enc.contains("deflate")) {
-                is = new java.util.zip.InflaterInputStream(is, new java.util.zip.Inflater(true));
+            if (conn instanceof HttpsURLConnection) {
+                try { ((HttpsURLConnection) conn).setSSLSocketFactory(new TLS12SocketFactory()); } catch (Throwable ignored) {}
             }
+
+            int code = conn.getResponseCode();
+            if (code >= 400) throw new Exception("HTTP " + code);
+
+            is = new BufferedInputStream(conn.getInputStream(), 8192);
+            String enc = conn.getHeaderField("Content-Encoding");
+            if (enc != null) {
+                enc = enc.toLowerCase(Locale.US);
+                if (enc.contains("gzip")) {
+                    is = new java.util.zip.GZIPInputStream(is);
+                } else if (enc.contains("deflate")) {
+                    is = new java.util.zip.InflaterInputStream(is, new java.util.zip.Inflater(true));
+                }
+            }
+
+            byte[] buf = new byte[8192];
+            int n;
+            while ((n = is.read(buf)) > 0) {
+                fos.write(buf, 0, n);
+            }
+            fos.flush();
+            return out;
+
+        } finally {
+            try { if (is != null) is.close(); } catch (Exception ignored) {}
+            try { fos.close(); } catch (Exception ignored) {}
+            try { if (conn != null) conn.disconnect(); } catch (Exception ignored) {}
         }
-
-        String text = readAll(is);
-        safeClose(is);
-        conn.disconnect();
-        return text;
-    }
-
-    private String readAll(InputStream is) throws Exception {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        byte[] buf = new byte[8192];
-        int n;
-        while ((n = is.read(buf)) > 0) baos.write(buf, 0, n);
-        return new String(baos.toByteArray(), "UTF-8");
-    }
-
-    private void safeClose(InputStream c) {
-        if (c != null) try { c.close(); } catch (Exception ignored) {}
     }
 
     private int dp(int v) {
         float d = getResources().getDisplayMetrics().density;
         return (int) (v * d + 0.5f);
+    }
+
+    // Utilitário para ByteArrayInputStream
+    private static class ByteArrayInputStream extends java.io.ByteArrayInputStream {
+        ByteArrayInputStream(byte[] buf) { super(buf); }
+        ByteArrayInputStream(String s) throws Exception { super(s.getBytes("UTF-8")); }
     }
 }
