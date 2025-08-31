@@ -1,90 +1,203 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
-<head>
-<title>Attention Required! | Cloudflare</title>
-<meta charset="UTF-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-<meta name="robots" content="noindex, nofollow" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/cf.errors.css" />
-<!--[if lt IE 9]><link rel="stylesheet" id='cf_styles-ie-css' href="/cdn-cgi/styles/cf.errors.ie.css" /><![endif]-->
-<style>body{margin:0;padding:0}</style>
-
-
-<!--[if gte IE 10]><!-->
-<script>
-  if (!navigator.cookieEnabled) {
-    window.addEventListener('DOMContentLoaded', function () {
-      var cookieEl = document.getElementById('cookie-alert');
-      cookieEl.style.display = 'block';
-    })
-  }
-</script>
-<!--<![endif]-->
-
-</head>
-<body>
-  <div id="cf-wrapper">
-    <div class="cf-alert cf-alert-error cf-cookie-error" id="cookie-alert" data-translate="enable_cookies">Please enable cookies.</div>
-    <div id="cf-error-details" class="cf-error-details-wrapper">
-      <div class="cf-wrapper cf-header cf-error-overview">
-        <h1 data-translate="block_headline">Sorry, you have been blocked</h1>
-        <h2 class="cf-subheadline"><span data-translate="unable_to_access">You are unable to access</span> getxc.top</h2>
-      </div><!-- /.header -->
-
-      <div class="cf-section cf-highlight">
-        <div class="cf-wrapper">
-          <div class="cf-screenshot-container cf-screenshot-full">
-            
-              <span class="cf-no-screenshot error"></span>
-            
-          </div>
-        </div>
-      </div><!-- /.captcha-container -->
-
-      <div class="cf-section cf-wrapper">
-        <div class="cf-columns two">
-          <div class="cf-column">
-            <h2 data-translate="blocked_why_headline">Why have I been blocked?</h2>
-
-            <p data-translate="blocked_why_detail">This website is using a security service to protect itself from online attacks. The action you just performed triggered the security solution. There are several actions that could trigger this block including submitting a certain word or phrase, a SQL command or malformed data.</p>
-          </div>
-
-          <div class="cf-column">
-            <h2 data-translate="blocked_resolve_headline">What can I do to resolve this?</h2>
-
-            <p data-translate="blocked_resolve_detail">You can email the site owner to let them know you were blocked. Please include what you were doing when this page came up and the Cloudflare Ray ID found at the bottom of this page.</p>
-          </div>
-        </div>
-      </div><!-- /.section -->
-
-      <div class="cf-error-footer cf-wrapper w-240 lg:w-full py-10 sm:py-4 sm:px-8 mx-auto text-center sm:text-left border-solid border-0 border-t border-gray-300">
-    <p class="text-13">
-      <span class="cf-footer-item sm:block sm:mb-1">Cloudflare Ray ID: <strong class="font-semibold">9775a3c7be29b49c</strong></span>
-      <span class="cf-footer-separator sm:hidden">&bull;</span>
-      <span id="cf-footer-item-ip" class="cf-footer-item hidden sm:block sm:mb-1">
-        Your IP:
-        <button type="button" id="cf-footer-ip-reveal" class="cf-footer-ip-reveal-btn">Click to reveal</button>
-        <span class="hidden" id="cf-footer-ip">4.236.158.54</span>
-        <span class="cf-footer-separator sm:hidden">&bull;</span>
-      </span>
-      <span class="cf-footer-item sm:block sm:mb-1"><span>Performance &amp; security by</span> <a rel="noopener noreferrer" href="https://www.cloudflare.com/5xx-error-landing" id="brand_link" target="_blank">Cloudflare</a></span>
-      
-    </p>
-    <script>(function(){function d(){var b=a.getElementById("cf-footer-item-ip"),c=a.getElementById("cf-footer-ip-reveal");b&&"classList"in b&&(b.classList.remove("hidden"),c.addEventListener("click",function(){c.classList.add("hidden");a.getElementById("cf-footer-ip").classList.remove("hidden")}))}var a=document;document.addEventListener&&a.addEventListener("DOMContentLoaded",d)})();</script>
-  </div><!-- /.error-footer -->
-
-    </div><!-- /#cf-error-details -->
-  </div><!-- /#cf-wrapper -->
-
-  <script>
-    window._cf_translation = {};
-    
-    
-  </script>
-</body>
-</html>
+#EXTM3U
+#EXTINF:-1 tvg-id="" tvg-name="All Sports +HD" tvg-logo="http://im.robx9.top:80/images/d84f0734e7e06dc9a3d7cfafffde3e66.png" group-title="Canais | ⚽ Esportes",All Sports +HD
+http://getxc.top:80/joao2025@@@/joao20252025/740.m3u8
+#EXTINF:-1 tvg-id="bandsports.br" tvg-name="Band Sports +HD" tvg-logo="http://im.robx9.top:80/images/298c6767b222a70fe4d8c45e03f8754e.png" group-title="Canais | ⚽ Esportes",Band Sports +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2197.m3u8
+#EXTINF:-1 tvg-id="bandsports.br" tvg-name="Band Sports HD" tvg-logo="http://im.robx9.top:80/images/6c0e720b28ab0e579c373c9a4ec20495.png" group-title="Canais | ⚽ Esportes",Band Sports HD
+http://getxc.top:80/joao2025@@@/joao20252025/66.m3u8
+#EXTINF:-1 tvg-id="bandsports.br" tvg-name="Band Sports FHD" tvg-logo="http://im.robx9.top:80/images/6c0e720b28ab0e579c373c9a4ec20495.png" group-title="Canais | ⚽ Esportes",Band Sports FHD
+http://getxc.top:80/joao2025@@@/joao20252025/65.m3u8
+#EXTINF:-1 tvg-id="bandsports.br" tvg-name="Band Sports FHD [H265]" tvg-logo="http://im.robx9.top:80/images/6c0e720b28ab0e579c373c9a4ec20495.png" group-title="Canais | ⚽ Esportes",Band Sports FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/64.m3u8
+#EXTINF:-1 tvg-id="bandsports.br" tvg-name="Band Sports SD" tvg-logo="http://im.robx9.top:80/images/6c0e720b28ab0e579c373c9a4ec20495.png" group-title="Canais | ⚽ Esportes",Band Sports SD
+http://getxc.top:80/joao2025@@@/joao20252025/67.m3u8
+#EXTINF:-1 tvg-id="off.br" tvg-name="Canal Off +HD" tvg-logo="https://acstatic.co/logos/canais/off.png" group-title="Canais | ⚽ Esportes",Canal Off +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2260.m3u8
+#EXTINF:-1 tvg-id="off.br" tvg-name="Canal Off FHD" tvg-logo="https://acstatic.co/logos/canais/off.png" group-title="Canais | ⚽ Esportes",Canal Off FHD
+http://getxc.top:80/joao2025@@@/joao20252025/113.m3u8
+#EXTINF:-1 tvg-id="off.br" tvg-name="Canal Off HD" tvg-logo="https://acstatic.co/logos/canais/off.png" group-title="Canais | ⚽ Esportes",Canal Off HD
+http://getxc.top:80/joao2025@@@/joao20252025/114.m3u8
+#EXTINF:-1 tvg-id="off.br" tvg-name="Canal Off SD" tvg-logo="https://acstatic.co/logos/canais/off.png" group-title="Canais | ⚽ Esportes",Canal Off SD
+http://getxc.top:80/joao2025@@@/joao20252025/115.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="DSports HD" tvg-logo="https://iili.io/2ZWyDCu.jpg" group-title="Canais | ⚽ Esportes",DSports HD
+http://getxc.top:80/joao2025@@@/joao20252025/2076124.m3u8
+#EXTINF:-1 tvg-id="espnbrasil.br" tvg-name="ESPN HD+" tvg-logo="https://iili.io/JvcXCIp.png" group-title="Canais | ⚽ ESPN",ESPN HD+
+http://getxc.top:80/joao2025@@@/joao20252025/2076125.m3u8
+#EXTINF:-1 tvg-id="espnbrasil.br" tvg-name="ESPN HD" tvg-logo="https://iili.io/JvcXCIp.png" group-title="Canais | ⚽ ESPN",ESPN HD
+http://getxc.top:80/joao2025@@@/joao20252025/222.m3u8
+#EXTINF:-1 tvg-id="espnbrasil.br" tvg-name="ESPN HD²" tvg-logo="https://iili.io/JvcXCIp.png" group-title="Canais | ⚽ ESPN",ESPN HD²
+http://getxc.top:80/joao2025@@@/joao20252025/30887.m3u8
+#EXTINF:-1 tvg-id="espnbrasil.br" tvg-name="ESPN SD" tvg-logo="https://iili.io/JvcXCIp.png" group-title="Canais | ⚽ ESPN",ESPN SD
+http://getxc.top:80/joao2025@@@/joao20252025/223.m3u8
+#EXTINF:-1 tvg-id="espnbrasil.br" tvg-name="ESPN FHD" tvg-logo="https://iili.io/JvcXCIp.png" group-title="Canais | ⚽ ESPN",ESPN FHD
+http://getxc.top:80/joao2025@@@/joao20252025/221.m3u8
+#EXTINF:-1 tvg-id="espnbrasil.br" tvg-name="ESPN FHD [H265]" tvg-logo="https://iili.io/JvcXCIp.png" group-title="Canais | ⚽ ESPN",ESPN FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/220.m3u8
+#EXTINF:-1 tvg-id="espn.br" tvg-name="ESPN 2 +HD" tvg-logo="https://iili.io/JvcX1C7.png" group-title="Canais | ⚽ ESPN",ESPN 2 +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2223.m3u8
+#EXTINF:-1 tvg-id="espn.br" tvg-name="ESPN 2 HD" tvg-logo="https://iili.io/JvcX1C7.png" group-title="Canais | ⚽ ESPN",ESPN 2 HD
+http://getxc.top:80/joao2025@@@/joao20252025/230.m3u8
+#EXTINF:-1 tvg-id="espn.br" tvg-name="ESPN 2 FHD" tvg-logo="https://iili.io/JvcX1C7.png" group-title="Canais | ⚽ ESPN",ESPN 2 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/229.m3u8
+#EXTINF:-1 tvg-id="espn.br" tvg-name="ESPN 2 FHD [H265]" tvg-logo="https://iili.io/JvcX1C7.png" group-title="Canais | ⚽ ESPN",ESPN 2 FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/228.m3u8
+#EXTINF:-1 tvg-id="espn.br" tvg-name="ESPN 2 SD" tvg-logo="https://iili.io/JvcX1C7.png" group-title="Canais | ⚽ ESPN",ESPN 2 SD
+http://getxc.top:80/joao2025@@@/joao20252025/231.m3u8
+#EXTINF:-1 tvg-id="espn3.br" tvg-name="ESPN 3 +HD" tvg-logo="https://iili.io/JvcXhyx.png" group-title="Canais | ⚽ ESPN",ESPN 3 +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2224.m3u8
+#EXTINF:-1 tvg-id="espn3.br" tvg-name="ESPN 3 HD" tvg-logo="https://iili.io/JvcXhyx.png" group-title="Canais | ⚽ ESPN",ESPN 3 HD
+http://getxc.top:80/joao2025@@@/joao20252025/234.m3u8
+#EXTINF:-1 tvg-id="espn3.br" tvg-name="ESPN 3 FHD" tvg-logo="https://iili.io/JvcXhyx.png" group-title="Canais | ⚽ ESPN",ESPN 3 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/233.m3u8
+#EXTINF:-1 tvg-id="espn3.br" tvg-name="ESPN 3 FHD [H265]" tvg-logo="https://iili.io/JvcXhyx.png" group-title="Canais | ⚽ ESPN",ESPN 3 FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/232.m3u8
+#EXTINF:-1 tvg-id="espn3.br" tvg-name="ESPN 3 SD" tvg-logo="https://iili.io/JvcXhyx.png" group-title="Canais | ⚽ ESPN",ESPN 3 SD
+http://getxc.top:80/joao2025@@@/joao20252025/235.m3u8
+#EXTINF:-1 tvg-id="espn4.br" tvg-name="ESPN 4 +HD" tvg-logo="https://iili.io/JvcXmas.png" group-title="Canais | ⚽ ESPN",ESPN 4 +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2225.m3u8
+#EXTINF:-1 tvg-id="espn4.br" tvg-name="ESPN 4 HD" tvg-logo="https://iili.io/JvcXmas.png" group-title="Canais | ⚽ ESPN",ESPN 4 HD
+http://getxc.top:80/joao2025@@@/joao20252025/238.m3u8
+#EXTINF:-1 tvg-id="espn4.br" tvg-name="ESPN 4 FHD" tvg-logo="https://iili.io/JvcXmas.png" group-title="Canais | ⚽ ESPN",ESPN 4 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/237.m3u8
+#EXTINF:-1 tvg-id="espn4.br" tvg-name="ESPN 4 FHD [H265]" tvg-logo="https://iili.io/JvcXmas.png" group-title="Canais | ⚽ ESPN",ESPN 4 FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/236.m3u8
+#EXTINF:-1 tvg-id="espn4.br" tvg-name="ESPN 4 SD" tvg-logo="https://iili.io/JvcXmas.png" group-title="Canais | ⚽ ESPN",ESPN 4 SD
+http://getxc.top:80/joao2025@@@/joao20252025/239.m3u8
+#EXTINF:-1 tvg-id="foxsports2.br" tvg-name="ESPN 5 +HD" tvg-logo="https://iili.io/JvcjT5G.png" group-title="Canais | ⚽ ESPN",ESPN 5 +HD
+http://getxc.top:80/joao2025@@@/joao20252025/197137.m3u8
+#EXTINF:-1 tvg-id="foxsports2.br" tvg-name="ESPN 5 HD" tvg-logo="https://iili.io/JvcjT5G.png" group-title="Canais | ⚽ ESPN",ESPN 5 HD
+http://getxc.top:80/joao2025@@@/joao20252025/197136.m3u8
+#EXTINF:-1 tvg-id="foxsports2.br" tvg-name="ESPN 5 FHD" tvg-logo="https://iili.io/JvcjT5G.png" group-title="Canais | ⚽ ESPN",ESPN 5 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/258.m3u8
+#EXTINF:-1 tvg-id="foxsports2.br" tvg-name="ESPN 5 HD" tvg-logo="https://iili.io/JvcjT5G.png" group-title="Canais | ⚽ ESPN",ESPN 5 HD
+http://getxc.top:80/joao2025@@@/joao20252025/259.m3u8
+#EXTINF:-1 tvg-id="foxsports2.br" tvg-name="ESPN 5 SD" tvg-logo="https://iili.io/JvcjT5G.png" group-title="Canais | ⚽ ESPN",ESPN 5 SD
+http://getxc.top:80/joao2025@@@/joao20252025/260.m3u8
+#EXTINF:-1 tvg-id="espn.extra.br" tvg-name="ESPN Extra +HD" tvg-logo="http://im.robx9.top:80/images/820e628618358cf1d72c62802a9e5b25.png" group-title="Canais | ⚽ ESPN",ESPN Extra +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2226.m3u8
+#EXTINF:-1 tvg-id="espn.extra.br" tvg-name="ESPN Extra HD" tvg-logo="http://im.robx9.top:80/images/820e628618358cf1d72c62802a9e5b25.png" group-title="Canais | ⚽ ESPN",ESPN Extra HD
+http://getxc.top:80/joao2025@@@/joao20252025/226.m3u8
+#EXTINF:-1 tvg-id="espn.extra.br" tvg-name="ESPN Extra FHD" tvg-logo="http://im.robx9.top:80/images/820e628618358cf1d72c62802a9e5b25.png" group-title="Canais | ⚽ ESPN",ESPN Extra FHD
+http://getxc.top:80/joao2025@@@/joao20252025/225.m3u8
+#EXTINF:-1 tvg-id="espn.extra.br" tvg-name="ESPN Extra FHD H265" tvg-logo="http://im.robx9.top:80/images/820e628618358cf1d72c62802a9e5b25.png" group-title="Canais | ⚽ ESPN",ESPN Extra FHD H265
+http://getxc.top:80/joao2025@@@/joao20252025/224.m3u8
+#EXTINF:-1 tvg-id="espn.extra.br" tvg-name="ESPN Extra SD" tvg-logo="http://im.robx9.top:80/images/820e628618358cf1d72c62802a9e5b25.png" group-title="Canais | ⚽ ESPN",ESPN Extra SD
+http://getxc.top:80/joao2025@@@/joao20252025/227.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="NSports FHD" tvg-logo="" group-title="Canais | ⚽ Esportes",NSports FHD
+http://getxc.top:80/joao2025@@@/joao20252025/203296.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="NSports HD" tvg-logo="" group-title="Canais | ⚽ Esportes",NSports HD
+http://getxc.top:80/joao2025@@@/joao20252025/203295.m3u8
+#EXTINF:-1 tvg-id="premiereclubes.br" tvg-name="Premiere Clubes +HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere Clubes +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2158.m3u8
+#EXTINF:-1 tvg-id="premiereclubes.br" tvg-name="Premiere Clubes HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere Clubes HD
+http://getxc.top:80/joao2025@@@/joao20252025/492.m3u8
+#EXTINF:-1 tvg-id="premiereclubes.br" tvg-name="Premiere Clubes FHD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere Clubes FHD
+http://getxc.top:80/joao2025@@@/joao20252025/491.m3u8
+#EXTINF:-1 tvg-id="premiereclubes.br" tvg-name="Premiere Clubes FHD [H265]" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere Clubes FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/490.m3u8
+#EXTINF:-1 tvg-id="premiereclubes.br" tvg-name="Premiere Clubes SD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere Clubes SD
+http://getxc.top:80/joao2025@@@/joao20252025/493.m3u8
+#EXTINF:-1 tvg-id="premiere2.br" tvg-name="Premiere 2 +HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 2 +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2153.m3u8
+#EXTINF:-1 tvg-id="premiere2.br" tvg-name="Premiere 2 HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 2 HD
+http://getxc.top:80/joao2025@@@/joao20252025/468.m3u8
+#EXTINF:-1 tvg-id="premiere2.br" tvg-name="Premiere 2 FHD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 2 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/467.m3u8
+#EXTINF:-1 tvg-id="premiere2.br" tvg-name="Premiere 2 FHD [H265]" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 2 FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/466.m3u8
+#EXTINF:-1 tvg-id="premiere2.br" tvg-name="Premiere 2 SD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 2 SD
+http://getxc.top:80/joao2025@@@/joao20252025/469.m3u8
+#EXTINF:-1 tvg-id="premiere3.br" tvg-name="Premiere 3 +HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 3 +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2154.m3u8
+#EXTINF:-1 tvg-id="premiere3.br" tvg-name="Premiere 3 HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 3 HD
+http://getxc.top:80/joao2025@@@/joao20252025/472.m3u8
+#EXTINF:-1 tvg-id="premiere3.br" tvg-name="Premiere 3 FHD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 3 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/471.m3u8
+#EXTINF:-1 tvg-id="premiere3.br" tvg-name="Premiere 3 FHD H265" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 3 FHD H265
+http://getxc.top:80/joao2025@@@/joao20252025/470.m3u8
+#EXTINF:-1 tvg-id="premiere3.br" tvg-name="Premiere 3 SD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 3 SD
+http://getxc.top:80/joao2025@@@/joao20252025/473.m3u8
+#EXTINF:-1 tvg-id="premiere4.br" tvg-name="Premiere 4 +HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 4 +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2155.m3u8
+#EXTINF:-1 tvg-id="premiere4.br" tvg-name="Premiere 4 HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 4 HD
+http://getxc.top:80/joao2025@@@/joao20252025/476.m3u8
+#EXTINF:-1 tvg-id="premiere4.br" tvg-name="Premiere 4 FHD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 4 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/475.m3u8
+#EXTINF:-1 tvg-id="premiere4.br" tvg-name="Premiere 4 FHD [H265]" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 4 FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/474.m3u8
+#EXTINF:-1 tvg-id="premiere4.br" tvg-name="Premiere 4 SD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 4 SD
+http://getxc.top:80/joao2025@@@/joao20252025/477.m3u8
+#EXTINF:-1 tvg-id="premiere5.br" tvg-name="Premiere 5 +HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 5 +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2156.m3u8
+#EXTINF:-1 tvg-id="premiere5.br" tvg-name="Premiere 5 HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 5 HD
+http://getxc.top:80/joao2025@@@/joao20252025/480.m3u8
+#EXTINF:-1 tvg-id="premiere5.br" tvg-name="Premiere 5 FHD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 5 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/479.m3u8
+#EXTINF:-1 tvg-id="premiere5.br" tvg-name="Premiere 5 FHD [H265]" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 5 FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/478.m3u8
+#EXTINF:-1 tvg-id="premiere5.br" tvg-name="Premiere 5 SD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 5 SD
+http://getxc.top:80/joao2025@@@/joao20252025/481.m3u8
+#EXTINF:-1 tvg-id="premiere6.br" tvg-name="Premiere 6 +HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 6 +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2157.m3u8
+#EXTINF:-1 tvg-id="premiere.6.br" tvg-name="Premiere 6 HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 6 HD
+http://getxc.top:80/joao2025@@@/joao20252025/484.m3u8
+#EXTINF:-1 tvg-id="premiere6.br" tvg-name="Premiere 6 FHD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 6 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/483.m3u8
+#EXTINF:-1 tvg-id="premiere.6.br" tvg-name="Premiere 6 SD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 6 SD
+http://getxc.top:80/joao2025@@@/joao20252025/485.m3u8
+#EXTINF:-1 tvg-id="premiere.7.br" tvg-name="Premiere 7+HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 7+HD
+http://getxc.top:80/joao2025@@@/joao20252025/488.m3u8
+#EXTINF:-1 tvg-id="premiere.7.br" tvg-name="Premiere 7 HD²" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 7 HD²
+http://getxc.top:80/joao2025@@@/joao20252025/31031.m3u8
+#EXTINF:-1 tvg-id="premiere.7.br" tvg-name="Premiere 7 FHD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 7 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/487.m3u8
+#EXTINF:-1 tvg-id="premiere.7.br" tvg-name="Premiere 7 SD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 7 SD
+http://getxc.top:80/joao2025@@@/joao20252025/489.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Premiere 8 HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 8 HD
+http://getxc.top:80/joao2025@@@/joao20252025/54095.m3u8
+#EXTINF:-1 tvg-id="premiere8.br" tvg-name="Premiere 8 FHD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 8 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/54333.m3u8
+#EXTINF:-1 tvg-id="premiere8.br" tvg-name="Premiere 8 SD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 8 SD
+http://getxc.top:80/joao2025@@@/joao20252025/54332.m3u8
+#EXTINF:-1 tvg-id="sportv.br" tvg-name="SporTV HD+" tvg-logo="https://iili.io/JjILfQR.png" group-title="Canais | ⚽ SporTV",SporTV HD+
+http://getxc.top:80/joao2025@@@/joao20252025/2284.m3u8
+#EXTINF:-1 tvg-id="sportv.br" tvg-name="SporTV HD" tvg-logo="https://iili.io/JjILfQR.png" group-title="Canais | ⚽ SporTV",SporTV HD
+http://getxc.top:80/joao2025@@@/joao20252025/184471.m3u8
+#EXTINF:-1 tvg-id="sportv.br" tvg-name="SporTV HD²" tvg-logo="https://iili.io/JjILfQR.png" group-title="Canais | ⚽ SporTV",SporTV HD²
+http://getxc.top:80/joao2025@@@/joao20252025/600.m3u8
+#EXTINF:-1 tvg-id="sportv.br" tvg-name="SporTV SD" tvg-logo="https://iili.io/JjILfQR.png" group-title="Canais | ⚽ SporTV",SporTV SD
+http://getxc.top:80/joao2025@@@/joao20252025/601.m3u8
+#EXTINF:-1 tvg-id="sportv.br" tvg-name="SporTV FHD" tvg-logo="https://iili.io/JjILfQR.png" group-title="Canais | ⚽ SporTV",SporTV FHD
+http://getxc.top:80/joao2025@@@/joao20252025/599.m3u8
+#EXTINF:-1 tvg-id="sportv.br" tvg-name="SporTV FHD [H265]" tvg-logo="https://iili.io/JjILfQR.png" group-title="Canais | ⚽ SporTV",SporTV FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/598.m3u8
+#EXTINF:-1 tvg-id="sportv2.br" tvg-name="SporTV 2 +HD" tvg-logo="https://iili.io/JjILgwJ.png" group-title="Canais | ⚽ SporTV",SporTV 2 +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2285.m3u8
+#EXTINF:-1 tvg-id="sportv2.br" tvg-name="SporTV 2 HD" tvg-logo="https://iili.io/JjILgwJ.png" group-title="Canais | ⚽ SporTV",SporTV 2 HD
+http://getxc.top:80/joao2025@@@/joao20252025/592.m3u8
+#EXTINF:-1 tvg-id="sportv2.br" tvg-name="SporTV 2 FHD" tvg-logo="https://iili.io/JjILgwJ.png" group-title="Canais | ⚽ SporTV",SporTV 2 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/591.m3u8
+#EXTINF:-1 tvg-id="sportv2.br" tvg-name="SporTV 2 FHD [H265]" tvg-logo="https://iili.io/JjILgwJ.png" group-title="Canais | ⚽ SporTV",SporTV 2 FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/590.m3u8
+#EXTINF:-1 tvg-id="sportv2.br" tvg-name="SporTV 2 SD" tvg-logo="https://iili.io/JjILgwJ.png" group-title="Canais | ⚽ SporTV",SporTV 2 SD
+http://getxc.top:80/joao2025@@@/joao20252025/593.m3u8
+#EXTINF:-1 tvg-id="sportv3.br" tvg-name="SporTV 3 +HD" tvg-logo="https://iili.io/JjILZ8X.png" group-title="Canais | ⚽ SporTV",SporTV 3 +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2286.m3u8
+#EXTINF:-1 tvg-id="sportv3.br" tvg-name="SporTV 3 HD" tvg-logo="https://iili.io/JjILZ8X.png" group-title="Canais | ⚽ SporTV",SporTV 3 HD
+http://getxc.top:80/joao2025@@@/joao20252025/596.m3u8
+#EXTINF:-1 tvg-id="sportv3.br" tvg-name="SporTV 3 FHD" tvg-logo="https://iili.io/JjILZ8X.png" group-title="Canais | ⚽ SporTV",SporTV 3 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/595.m3u8
+#EXTINF:-1 tvg-id="sportv3.br" tvg-name="SporTV 3 FHD [H265]" tvg-logo="https://iili.io/JjILZ8X.png" group-title="Canais | ⚽ SporTV",SporTV 3 FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/594.m3u8
+#EXTINF:-1 tvg-id="sportv3.br" tvg-name="SporTV 3 SD" tvg-logo="https://iili.io/JjILZ8X.png" group-title="Canais | ⚽ SporTV",SporTV 3 SD
+http://getxc.top:80/joao2025@@@/joao20252025/597.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="SporTV 4 HD" tvg-logo="https://iili.io/2yMqvWP.png" group-title="Canais | ⚽ SporTV",SporTV 4 HD
+http://getxc.top:80/joao2025@@@/joao20252025/2079817.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Red Bull TV HD" tvg-logo="https://iili.io/3kGPWvV.png" group-title="Canais | ⚽ Esportes",Red Bull TV HD
+http://getxc.top:80/joao2025@@@/joao20252025/2092800.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Xsports HD" tvg-logo="https://i.imgur.com/FGCmwcn.png" group-title="Canais | ⚽ Esportes",Xsports HD
+http://getxc.top:80/joao2025@@@/joao20252025/2106014.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Xsports FHD" tvg-logo="https://i.imgur.com/FGCmwcn.png" group-title="Canais | ⚽ Esportes",Xsports FHD
+http://getxc.top:80/joao2025@@@/joao20252025/2106015.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Xsports FHD H265" tvg-logo="https://i.imgur.com/FGCmwcn.png" group-title="Canais | ⚽ Esportes",Xsports FHD H265
+http://getxc.top:80/joao2025@@@/joao20252025/2106698.m3u8
