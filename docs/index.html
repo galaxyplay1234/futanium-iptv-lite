@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Filtrar M3U</title>
+<style>
+  body{margin:20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#0f1218;color:#eee}
+  .box{max-width:900px;margin:auto;background:#161a22;border:1px solid #2a2f3a;border-radius:10px;padding:18px}
+  h1{margin:0 0 12px}
+  input,button{padding:10px;border-radius:6px;border:1px solid #333;background:#1b2130;color:#eee}
+  button{cursor:pointer;background:#2e7d32;color:#fff;border:none}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin-top:12px}
+  label{display:flex;align-items:center;gap:6px;background:#1b2130;padding:6px;border-radius:6px}
+  .ok{background:#18331b;color:#b6ffb6;padding:8px;margin-top:10px;border-radius:6px;display:none}
+  .err{background:#3a1e25;color:#ffd9de;padding:8px;margin-top:10px;border-radius:6px;display:none}
+</style>
+</head>
+<body>
+<div class="box">
+  <h1>Filtrar M3U</h1>
+
+  <input id="file" type="file" accept=".m3u,.m3u8"/> 
+  <button id="scanBtn">Ler categorias</button>
+  <button id="genBtn">Gerar e salvar no GitHub</button>
+
+  <div id="cats" class="grid"></div>
+
+  <details style="margin-top:12px">
+    <summary>⚙️ Opções avançadas</summary>
+    <p><b>Token:</b> <input id="ghToken" type="password" placeholder="GitHub Token"/></p>
+    <p><b>Repo:</b> <input id="ghRepo" value="galaxyplay1234/futanium-iptv-lite"/></p>
+    <p><b>Arquivo:</b> <input id="ghPath" value="playlist.m3u"/></p>
+    <p><b>Branch:</b> <input id="ghBranch" value="main"/></p>
+  </details>
+
+  <div id="msgOk" class="ok"></div>
+  <div id="msgErr" class="err"></div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+let lines=[],extinfIdx=[],lastGenerated=null;
+
+$('#scanBtn').onclick=async()=>{
+  const f=$('#file').files[0]; if(!f) return showErr('Selecione um arquivo');
+  const text=await f.text();
+  lines=text.split(/\r?\n/);
+  extinfIdx=[]; const cats={};
+  for(let i=0;i<lines.length;i++){
+    if(lines[i].startsWith('#EXTINF:')){
+      extinfIdx.push(i);
+      let m=lines[i].match(/group-title="([^"]*)"/i);
+      let cat=m?m[1]:'Sem Categoria';
+      cats[cat]=(cats[cat]||0)+1;
+    }
+  }
+  $('#cats').innerHTML=Object.keys(cats).map(c=>
+    `<label><input type="checkbox" name="cat" value="${c}" checked> ${c} (${cats[c]})</label>`
+  ).join('');
+  showOk('Categorias carregadas.');
+};
+
+$('#genBtn').onclick=async()=>{
+  if(!extinfIdx.length) return showErr('Nenhuma categoria carregada.');
+  const wanted=[...document.querySelectorAll('input[name=cat]:checked')].map(x=>x.value);
+  const out=['#EXTM3U'];
+  for(let idx of extinfIdx){
+    let ext=lines[idx],url=lines[idx+1]||'',cat=(ext.match(/group-title="([^"]*)"/i)||[])[1]||'';
+    if(wanted.includes(cat)) { out.push(ext); out.push(url); }
+  }
+  lastGenerated=out.join('\n');
+  await sendToGitHub(lastGenerated);
+};
+
+async function sendToGitHub(content){
+  try{
+    const token=$('#ghToken').value.trim();
+    const repo=$('#ghRepo').value.trim();
+    const path=$('#ghPath').value.trim();
+    const branch=$('#ghBranch').value.trim();
+    if(!token) return showErr('Informe o token do GitHub.');
+
+    const getUrl=`https://api.github.com/repos/${repo}/contents/${path}?ref=${branch}`;
+    let sha=null;
+    const r=await fetch(getUrl,{headers:{Authorization:`Bearer ${token}`}});
+    if(r.ok){ const j=await r.json(); sha=j.sha; }
+
+    const b64=btoa(unescape(encodeURIComponent(content)));
+    const resp=await fetch(`https://api.github.com/repos/${repo}/contents/${path}`,{
+      method:'PUT',
+      headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},
+      body:JSON.stringify({message:'update playlist',content:b64,branch,sha})
+    });
+    if(!resp.ok){ const t=await resp.text(); throw new Error(t); }
+    const raw=`https://raw.githubusercontent.com/${repo}/${branch}/${path}`;
+    showOk(`✅ Playlist salva no GitHub!<br><a href="${raw}" target="_blank">${raw}</a>`);
+  }catch(e){ showErr('Falha: '+e.message); }
+}
+
+function showOk(t){$('#msgOk').innerHTML=t;$('#msgOk').style.display='block';$('#msgErr').style.display='none';}
+function showErr(t){$('#msgErr').innerHTML=t;$('#msgErr').style.display='block';$('#msgOk').style.display='none';}
+</script>
+</body>
+</html>
