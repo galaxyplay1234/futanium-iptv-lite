@@ -13,7 +13,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -34,11 +33,9 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends Activity {
 
-    // SUA PLAYLIST NA NUVEM (GitHub RAW - formato correto)
     private static final String PLAYLIST_URL =
             "https://raw.githubusercontent.com/galaxyplay1234/futanium-iptv-lite/main/playlist.m3u";
 
-    // ids fixos para navegação DPAD
     private static final int ID_LIST = 1001;
     private static final int ID_FIRST_CHIP = 1002;
 
@@ -57,7 +54,7 @@ public class MainActivity extends Activity {
     private ArrayAdapter<String> adapter;
 
     private String selectedCategory = "Todos";
-    private View firstChipRef = null; // pra focar com DPAD ↑
+    private View firstChipRef = null;
 
     static { System.setProperty("http.keepAlive", "false"); }
 
@@ -65,13 +62,11 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Raiz: Linear vertical (categorias fixas em cima, lista embaixo)
         LinearLayout root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
-        root.setLayoutParams(new FrameLayout.LayoutParams(
+        root.setLayoutParams(new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
-        // Barra de categorias fixa (HorizontalScroll)
         catScroll = new HorizontalScrollView(this);
         catScroll.setHorizontalScrollBarEnabled(false);
         catScroll.setLayoutParams(new LinearLayout.LayoutParams(
@@ -84,7 +79,6 @@ public class MainActivity extends Activity {
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         root.addView(catScroll);
 
-        // ListView ocupa o restante
         listView = new ListView(this);
         listView.setId(ID_LIST);
         LinearLayout.LayoutParams lpList = new LinearLayout.LayoutParams(
@@ -96,7 +90,6 @@ public class MainActivity extends Activity {
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, filteredNames);
         listView.setAdapter(adapter);
 
-        // Clique no item -> Player
         listView.setOnItemClickListener((p, v, pos, id) -> {
             String url = filtered.get(pos).url;
             Intent it = new Intent(MainActivity.this, PlayerActivity.class);
@@ -104,7 +97,7 @@ public class MainActivity extends Activity {
             startActivity(it);
         });
 
-        // DPAD ↑ na lista leva para a barra de categorias (foca o primeiro chip)
+        // DPAD ↑ na lista -> foca o primeiro chip
         listView.setOnKeyListener((v, keyCode, event) -> {
             if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DPAD_UP) {
                 if (firstChipRef != null) {
@@ -115,7 +108,6 @@ public class MainActivity extends Activity {
             return false;
         });
 
-        // Placeholder inicial
         filteredNames.clear();
         filteredNames.add("Carregando lista...");
         adapter.notifyDataSetChanged();
@@ -186,7 +178,6 @@ public class MainActivity extends Activity {
         }
     }
 
-    // === Seu downloader original, mantido ===
     private ArrayList<M3UParser.Item> fetchFromUrl(String urlStr) throws Exception {
         HttpURLConnection c = null;
         InputStream is = null;
@@ -212,7 +203,6 @@ public class MainActivity extends Activity {
         }
     }
 
-    // === Ler categorias do mesmo arquivo ===
     private void readCategoriesFromUrl(String urlStr) throws Exception {
         HttpURLConnection c = null;
         InputStream is = null;
@@ -267,18 +257,17 @@ public class MainActivity extends Activity {
         return null;
     }
 
-    // === UI categorias (chips) ===
     private void buildCategoryBar() {
         catBar.removeAllViews();
         firstChipRef = null;
 
         int total = (!catCounts.isEmpty()) ? totalCountAll() : items.size();
-        addCategoryChip("Todos", total, true); // primeiro chip
+        addCategoryChip("Todos", total, true);
 
         for (Map.Entry<String, Integer> e : catCounts.entrySet()) {
             addCategoryChip(e.getKey(), e.getValue(), false);
         }
-        highlightSelected("Todos");
+        updateChipStyles(); // pinta estado inicial
     }
 
     private void addCategoryChip(final String cat, int count, boolean first) {
@@ -291,10 +280,11 @@ public class MainActivity extends Activity {
         chip.setFocusable(true);
         chip.setFocusableInTouchMode(true);
 
-        GradientDrawable bg = new GradientDrawable();
-        bg.setColor(0xFF2B3350);
-        bg.setCornerRadius(dp(16));
-        chip.setBackgroundDrawable(bg);
+        chip.setBackgroundDrawable(makeChipBg(
+                0xFF2B3350,   // fill normal
+                0x00000000,   // stroke none
+                0));          // stroke width
+
         chip.setTextColor(0xFFEFEFEF);
 
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
@@ -304,10 +294,11 @@ public class MainActivity extends Activity {
 
         chip.setOnClickListener(v -> {
             applyFilter(cat);
-            highlightSelected(cat);
+            selectedCategory = cat;
+            updateChipStyles();
         });
 
-        // DPAD ↓ do chip leva à lista
+        // DPAD ↓ leva à lista
         chip.setOnKeyListener((v, keyCode, event) -> {
             if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DPAD_DOWN) {
                 listView.requestFocus();
@@ -317,7 +308,9 @@ public class MainActivity extends Activity {
             return false;
         });
 
-        // guarda o primeiro para o DPAD ↑ da lista
+        // Efeito de FOCO (contorno) — inclusive quando navegar com ← →
+        chip.setOnFocusChangeListener((v, hasFocus) -> updateChipStyles());
+
         if (first) {
             chip.setId(ID_FIRST_CHIP);
             firstChipRef = chip;
@@ -326,19 +319,54 @@ public class MainActivity extends Activity {
         catBar.addView(chip);
     }
 
-    private void highlightSelected(String cat) {
-        selectedCategory = cat;
+    // pinta seleção e foco
+    private void updateChipStyles() {
         int n = catBar.getChildCount();
         for (int i = 0; i < n; i++) {
             View v = catBar.getChildAt(i);
-            if (v instanceof TextView) {
-                TextView tv = (TextView) v;
-                boolean sel = tv.getText().toString().startsWith(cat + " ");
-                tv.setTypeface(null, sel ? Typeface.BOLD : Typeface.NORMAL);
-                GradientDrawable g = (GradientDrawable) tv.getBackground();
-                g.setColor(sel ? 0xFF3A4470 : 0xFF2B3350);
+            if (!(v instanceof TextView)) continue;
+            TextView tv = (TextView) v;
+
+            boolean isSelected = tv.getText().toString().startsWith(selectedCategory + " ");
+            boolean hasFocus = tv.hasFocus();
+
+            int fill, strokeColor, strokeW;
+            if (isSelected && hasFocus) {
+                // selecionado + focado: destaque máximo
+                fill = 0xFF44508A;
+                strokeColor = 0xFF8FB1FF;
+                strokeW = dp(2);
+                tv.setTypeface(null, Typeface.BOLD);
+            } else if (isSelected) {
+                // selecionado
+                fill = 0xFF3A4470;
+                strokeColor = 0x00000000;
+                strokeW = 0;
+                tv.setTypeface(null, Typeface.BOLD);
+            } else if (hasFocus) {
+                // somente foco (pré-seleção ao navegar)
+                fill = 0xFF2B3350;
+                strokeColor = 0xFF8FB1FF;
+                strokeW = dp(2);
+                tv.setTypeface(null, Typeface.NORMAL);
+            } else {
+                // normal
+                fill = 0xFF2B3350;
+                strokeColor = 0x00000000;
+                strokeW = 0;
+                tv.setTypeface(null, Typeface.NORMAL);
             }
+
+            tv.setBackgroundDrawable(makeChipBg(fill, strokeColor, strokeW));
         }
+    }
+
+    private GradientDrawable makeChipBg(int fill, int strokeColor, int strokeW) {
+        GradientDrawable bg = new GradientDrawable();
+        bg.setColor(fill);
+        bg.setCornerRadius(dp(16));
+        if (strokeW > 0) bg.setStroke(strokeW, strokeColor);
+        return bg;
     }
 
     private void applyFilter(String cat) {
