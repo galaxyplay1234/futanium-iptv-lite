@@ -7,7 +7,6 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -22,6 +21,7 @@ import android.widget.Toast;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -38,6 +38,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends Activity {
 
+    // M3U hospedada no GitHub RAW
     private static final String PLAYLIST_URL =
             "https://raw.githubusercontent.com/galaxyplay1234/futanium-iptv-lite/main/playlist.m3u";
 
@@ -70,7 +71,7 @@ public class MainActivity extends Activity {
 
         listView = new ListView(this);
 
-        // ===== Header com categorias (adicionar somente uma vez) =====
+        // header fixo com categorias
         catScroll = new HorizontalScrollView(this);
         catScroll.setHorizontalScrollBarEnabled(false);
         catScroll.setLayoutParams(new ListView.LayoutParams(
@@ -83,7 +84,7 @@ public class MainActivity extends Activity {
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         listView.addHeaderView(catScroll, null, false);
 
-        // Adapter vazio já setado (não trocamos mais o adapter)
+        // adapter único (não trocamos mais)
         channelsAdapter = new ArrayAdapter<String>(
                 this, android.R.layout.simple_list_item_1, filteredNames
         );
@@ -93,7 +94,6 @@ public class MainActivity extends Activity {
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         setContentView(root);
 
-        // Clique (compensa header)
         listView.setOnItemClickListener((p, v, pos, id) -> {
             int idx = pos - listView.getHeaderViewsCount();
             if (idx < 0 || idx >= filtered.size()) return;
@@ -118,10 +118,13 @@ public class MainActivity extends Activity {
         try {
             File temp = downloadToTempFile(PLAYLIST_URL);
 
-            // Passo 1: contar categorias (leve, streaming)
+            // 1) contar categorias (leve, sem carregar tudo em RAM)
             catCounts.clear();
             itemCats.clear();
-            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(temp), "UTF-8"));
+            int entriesCount = 0;
+
+            BufferedReader br = new BufferedReader(
+                    new InputStreamReader(new FileInputStream(temp), "UTF-8"));
             String line;
             while ((line = br.readLine()) != null) {
                 if (!line.startsWith("#EXTINF:")) continue;
@@ -130,26 +133,31 @@ public class MainActivity extends Activity {
                 itemCats.add(cat);
                 Integer old = catCounts.get(cat);
                 catCounts.put(cat, (old == null) ? 1 : (old + 1));
+                entriesCount++;
             }
             br.close();
 
-            // Passo 2: parse dos canais
+            // 2) parse de canais
             InputStream is = new FileInputStream(temp);
             items = M3UParser.parse(is);
             is.close();
             temp.delete();
 
-            // alinhamento defensivo
+            if (items == null) items = new ArrayList<M3UParser.Item>();
             if (itemCats.size() != items.size()) {
                 int n = Math.min(itemCats.size(), items.size());
                 while (itemCats.size() > n) itemCats.remove(itemCats.size() - 1);
                 while (items.size() > n) items.remove(items.size() - 1);
             }
 
+            if (items.isEmpty()) throw new Exception("Playlist vazia ou ilegível");
+
             ui.post(() -> {
                 renderCategoryHeader();
                 applyFilter("Todos");
-                Toast.makeText(MainActivity.this, "Lista carregada", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,
+                        "OK: " + items.size() + " canais · " + catCounts.size() + " categorias",
+                        Toast.LENGTH_SHORT).show();
             });
 
         } catch (Throwable e) {
@@ -160,15 +168,15 @@ public class MainActivity extends Activity {
 
     private void fallbackLoad() {
         try {
-            InputStream is = getAssets().open("channels.m3u");
-            // contar categorias
-            BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            // assets/channels.m3u
+            InputStream isRaw = getAssets().open("channels.m3u");
+            BufferedReader br = new BufferedReader(new InputStreamReader(isRaw, "UTF-8"));
+            StringBuilder sb = new StringBuilder();
             String line;
             catCounts.clear();
             itemCats.clear();
-            ArrayList<String> lines = new ArrayList<String>();
             while ((line = br.readLine()) != null) {
-                lines.add(line);
+                sb.append(line).append('\n');
                 if (line.startsWith("#EXTINF:")) {
                     String cat = extractGroupTitle(line);
                     if (cat == null || cat.length() == 0) cat = "Sem Categoria";
@@ -178,12 +186,10 @@ public class MainActivity extends Activity {
                 }
             }
             br.close();
-            // parse
-            StringBuilder sb = new StringBuilder();
-            for (String s : lines) { sb.append(s).append('\n'); }
-            InputStream is2 = new ByteArrayInputStream(sb.toString().getBytes("UTF-8"));
-            items = M3UParser.parse(is2);
-            is2.close();
+
+            InputStream is = new ByteArrayInputStream(sb.toString().getBytes("UTF-8"));
+            items = M3UParser.parse(is);
+            is.close();
 
             if (itemCats.size() != items.size()) {
                 int n = Math.min(itemCats.size(), items.size());
@@ -194,11 +200,14 @@ public class MainActivity extends Activity {
             ui.post(() -> {
                 renderCategoryHeader();
                 applyFilter("Todos");
-                Toast.makeText(MainActivity.this, "Sem internet — usando lista local.", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,
+                        "Sem internet — usando lista local.",
+                        Toast.LENGTH_LONG).show();
             });
 
         } catch (Throwable t2) {
             Log.e("IPTV", "Falha assets: " + t2.getMessage(), t2);
+
             // demo mínima
             String demo =
                     "#EXTM3U\n" +
@@ -216,10 +225,13 @@ public class MainActivity extends Activity {
                 catCounts.clear();
                 catCounts.put("Demo", 2);
             } catch (Exception ignore) { }
+
             ui.post(() -> {
                 renderCategoryHeader();
                 applyFilter("Todos");
-                Toast.makeText(MainActivity.this, "Falha total — canais de teste.", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,
+                        "Falha total — canais de teste.",
+                        Toast.LENGTH_LONG).show();
             });
         }
     }
@@ -255,7 +267,6 @@ public class MainActivity extends Activity {
         final TextView chip = new TextView(this);
         chip.setText(cat + " (" + count + ")");
         chip.setSingleLine(true);
-        chip.setEllipsize(android.text.TextUtils.TruncateAt.END);
         chip.setPadding(dp(14), dp(8), dp(14), dp(8));
         chip.setGravity(Gravity.CENTER_VERTICAL);
         chip.setTextSize(14);
@@ -311,18 +322,18 @@ public class MainActivity extends Activity {
                 }
             }
         }
-        // ATENÇÃO: não trocamos adapter nem header; só notificamos
         channelsAdapter.notifyDataSetChanged();
     }
 
     /* =======================
-       Download streaming → arquivo
+       Download → arquivo (sem gzip)
        ======================= */
     private File downloadToTempFile(String urlStr) throws Exception {
         HttpURLConnection conn = null;
         InputStream is = null;
         File out = File.createTempFile("m3u_", ".tmp", getCacheDir());
         FileOutputStream fos = new FileOutputStream(out);
+        long bytes = 0;
 
         try {
             URL url = new URL(urlStr);
@@ -333,7 +344,8 @@ public class MainActivity extends Activity {
             conn.setRequestProperty("User-Agent",
                     "Mozilla/5.0 (Linux; Android 4.4; FutaniumIPTV) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36");
             conn.setRequestProperty("Accept", "*/*");
-            conn.setRequestProperty("Accept-Encoding", "gzip, deflate");
+            // >>> chave para TV/Android antigo: sem compressão
+            conn.setRequestProperty("Accept-Encoding", "identity");
             conn.setRequestProperty("Connection", "close");
 
             if (conn instanceof HttpsURLConnection) {
@@ -344,22 +356,16 @@ public class MainActivity extends Activity {
             if (code >= 400) throw new Exception("HTTP " + code);
 
             is = new BufferedInputStream(conn.getInputStream(), 8192);
-            String enc = conn.getHeaderField("Content-Encoding");
-            if (enc != null) {
-                enc = enc.toLowerCase(Locale.US);
-                if (enc.contains("gzip")) {
-                    is = new java.util.zip.GZIPInputStream(is);
-                } else if (enc.contains("deflate")) {
-                    is = new java.util.zip.InflaterInputStream(is, new java.util.zip.Inflater(true));
-                }
-            }
 
             byte[] buf = new byte[8192];
             int n;
             while ((n = is.read(buf)) > 0) {
                 fos.write(buf, 0, n);
+                bytes += n;
             }
             fos.flush();
+
+            if (bytes == 0) throw new Exception("Stream vazio");
             return out;
 
         } finally {
@@ -372,11 +378,5 @@ public class MainActivity extends Activity {
     private int dp(int v) {
         float d = getResources().getDisplayMetrics().density;
         return (int) (v * d + 0.5f);
-    }
-
-    // Utilitário para ByteArrayInputStream
-    private static class ByteArrayInputStream extends java.io.ByteArrayInputStream {
-        ByteArrayInputStream(byte[] buf) { super(buf); }
-        ByteArrayInputStream(String s) throws Exception { super(s.getBytes("UTF-8")); }
     }
 }
