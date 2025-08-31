@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -37,45 +38,43 @@ public class MainActivity extends Activity {
     private static final String PLAYLIST_URL =
             "https://raw.githubusercontent.com/galaxyplay1234/futanium-iptv-lite/main/playlist.m3u";
 
+    // ids fixos para navegação DPAD
+    private static final int ID_LIST = 1001;
+    private static final int ID_FIRST_CHIP = 1002;
+
     private ListView listView;
+    private HorizontalScrollView catScroll;
+    private LinearLayout catBar;
+
     private final Handler ui = new Handler(Looper.getMainLooper());
 
-    // itens parseados (como no seu fluxo original)
     private ArrayList<M3UParser.Item> items = new ArrayList<M3UParser.Item>();
-
-    // categorias por item (mesmo índice dos itens)
     private ArrayList<String> itemCats = new ArrayList<String>();
-    // contagem por categoria (ordem de inserção)
     private LinkedHashMap<String, Integer> catCounts = new LinkedHashMap<String, Integer>();
 
-    // lista filtrada para exibir
     private ArrayList<M3UParser.Item> filtered = new ArrayList<M3UParser.Item>();
     private ArrayList<String> filteredNames = new ArrayList<String>();
     private ArrayAdapter<String> adapter;
 
-    // UI: barra de categorias
-    private HorizontalScrollView catScroll;
-    private LinearLayout catBar;
     private String selectedCategory = "Todos";
+    private View firstChipRef = null; // pra focar com DPAD ↑
 
-    // (opcional, ajuda em TVs antigas com bug de keep-alive)
     static { System.setProperty("http.keepAlive", "false"); }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Layout 100% em código (nada de inflate)
-        FrameLayout root = new FrameLayout(this);
+        // Raiz: Linear vertical (categorias fixas em cima, lista embaixo)
+        LinearLayout root = new LinearLayout(this);
+        root.setOrientation(LinearLayout.VERTICAL);
         root.setLayoutParams(new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
-        listView = new ListView(this);
-
-        // Header para as categorias
+        // Barra de categorias fixa (HorizontalScroll)
         catScroll = new HorizontalScrollView(this);
         catScroll.setHorizontalScrollBarEnabled(false);
-        catScroll.setLayoutParams(new ListView.LayoutParams(
+        catScroll.setLayoutParams(new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         catBar = new LinearLayout(this);
         catBar.setOrientation(LinearLayout.HORIZONTAL);
@@ -83,61 +82,63 @@ public class MainActivity extends Activity {
         catBar.setPadding(pad, pad, pad, pad);
         catScroll.addView(catBar, new HorizontalScrollView.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        listView.addHeaderView(catScroll, null, false);
+        root.addView(catScroll);
 
-        adapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_list_item_1, filteredNames);
-        listView.setAdapter(adapter);
+        // ListView ocupa o restante
+        listView = new ListView(this);
+        listView.setId(ID_LIST);
+        LinearLayout.LayoutParams lpList = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f);
+        root.addView(listView, lpList);
 
-        root.addView(listView, new FrameLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         setContentView(root);
 
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, filteredNames);
+        listView.setAdapter(adapter);
+
+        // Clique no item -> Player
         listView.setOnItemClickListener((p, v, pos, id) -> {
-            int idx = pos - listView.getHeaderViewsCount();
-            if (idx < 0 || idx >= filtered.size()) return;
-            String url = filtered.get(idx).url;
+            String url = filtered.get(pos).url;
             Intent it = new Intent(MainActivity.this, PlayerActivity.class);
             it.putExtra("url", url);
             startActivity(it);
         });
 
-        // placeholder
+        // DPAD ↑ na lista leva para a barra de categorias (foca o primeiro chip)
+        listView.setOnKeyListener((v, keyCode, event) -> {
+            if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DPAD_UP) {
+                if (firstChipRef != null) {
+                    firstChipRef.requestFocus();
+                    return true;
+                }
+            }
+            return false;
+        });
+
+        // Placeholder inicial
         filteredNames.clear();
         filteredNames.add("Carregando lista...");
         adapter.notifyDataSetChanged();
 
-        // Busca em thread simples (evita AsyncTask bugar em TVs velhas)
         new Thread(this::loadAll).start();
     }
 
     private void loadAll() {
         try {
-            // 1) mantém seu fluxo original que JÁ funcionava
             ArrayList<M3UParser.Item> out = fetchFromUrl(PLAYLIST_URL);
             if (out == null || out.isEmpty()) throw new Exception("Lista vazia da nuvem.");
             items = out;
 
-            // 2) nomes na UI (como era)
-            final ArrayList<String> names = new ArrayList<String>();
-            for (M3UParser.Item it : items) names.add(it.name);
-
-            // 3) rebaixa rapidamente o arquivo (somente leitura de linhas)
-            //    para extrair as categorias na mesma ordem
             try {
                 readCategoriesFromUrl(PLAYLIST_URL);
             } catch (Throwable catEx) {
                 Log.w("IPTV", "Falha ao ler categorias: " + catEx.getMessage());
-                itemCats.clear();
-                // sem categorias -> só “Todos”
+                itemCats.clear(); catCounts.clear();
             }
 
             ui.post(() -> {
-                // monta a barra de categorias (se não conseguiu, mostra só “Todos”)
                 buildCategoryBar();
-                // aplica o filtro inicial
                 applyFilter("Todos");
-
                 Toast.makeText(MainActivity.this,
                         "Lista carregada: " + items.size() +
                                 (catCounts.isEmpty() ? "" : " · " + catCounts.size() + " categorias"),
@@ -146,14 +147,11 @@ public class MainActivity extends Activity {
 
         } catch (Throwable e) {
             Log.e("IPTV", "Falha rede: " + e.getMessage(), e);
-            // 2) fallback: tentar assets/channels.m3u
             try {
                 InputStream is = getAssets().open("channels.m3u");
                 items = M3UParser.parse(is);
                 is.close();
-                if (items == null || items.isEmpty()) throw new Exception("assets vazio");
 
-                // categorias do assets (se existir group-title, tentamos ler também)
                 try {
                     InputStream is2 = getAssets().open("channels.m3u");
                     readCategoriesFromStream(is2);
@@ -170,15 +168,12 @@ public class MainActivity extends Activity {
             } catch (Throwable t2) {
                 Log.e("IPTV", "Falha assets: " + t2.getMessage(), t2);
 
-                // 3) fallback final: lista EMBUTIDA (pra nunca cair)
                 items = new ArrayList<M3UParser.Item>();
                 items.add(new M3UParser.Item("Demo Bunny (fallback)", "http://184.72.239.149/vod/smil:BigBuckBunny.smil/playlist.m3u8"));
                 items.add(new M3UParser.Item("Apple BipBop (fallback)", "http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8"));
                 itemCats.clear();
-                itemCats.add("Demo");
-                itemCats.add("Demo");
-                catCounts.clear();
-                catCounts.put("Demo", 2);
+                itemCats.add("Demo"); itemCats.add("Demo");
+                catCounts.clear(); catCounts.put("Demo", 2);
 
                 ui.post(() -> {
                     buildCategoryBar();
@@ -191,9 +186,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    /* ======================
-       Seu downloader original
-       ====================== */
+    // === Seu downloader original, mantido ===
     private ArrayList<M3UParser.Item> fetchFromUrl(String urlStr) throws Exception {
         HttpURLConnection c = null;
         InputStream is = null;
@@ -205,17 +198,13 @@ public class MainActivity extends Activity {
             c.setConnectTimeout(10000);
             c.setReadTimeout(20000);
             c.setRequestProperty("User-Agent", "Mozilla/5.0 (Linux; Android 4.4; FutaniumIPTV) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36");
-
             if (c instanceof HttpsURLConnection) {
                 HttpsURLConnection https = (HttpsURLConnection) c;
                 https.setSSLSocketFactory(new TLS12SocketFactory());
-                // https.setHostnameVerifier((h, s) -> true);
             }
-
             int code = c.getResponseCode();
             if (code >= 400) throw new Exception("HTTP " + code);
             is = c.getInputStream();
-
             return M3UParser.parse(is);
         } finally {
             try { if (is != null) is.close(); } catch (Exception ignored) {}
@@ -223,10 +212,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    /* ======================
-       Leitura de categorias
-       ====================== */
-
+    // === Ler categorias do mesmo arquivo ===
     private void readCategoriesFromUrl(String urlStr) throws Exception {
         HttpURLConnection c = null;
         InputStream is = null;
@@ -237,19 +223,14 @@ public class MainActivity extends Activity {
             c.setConnectTimeout(15000);
             c.setReadTimeout(30000);
             c.setRequestProperty("User-Agent", "Mozilla/5.0 (Linux; Android 4.4; FutaniumIPTV)");
-            c.setRequestProperty("Accept", "*/*");
-            // para evitar problemas de gzip em devices antigos
             c.setRequestProperty("Accept-Encoding", "identity");
-
             if (c instanceof HttpsURLConnection) {
                 try { ((HttpsURLConnection) c).setSSLSocketFactory(new TLS12SocketFactory()); } catch (Throwable ignored) {}
             }
-
             int code = c.getResponseCode();
             if (code >= 400) throw new Exception("HTTP " + code);
             is = c.getInputStream();
             readCategoriesFromStream(is);
-
         } finally {
             try { if (is != null) is.close(); } catch (Exception ignored) {}
             try { if (c != null) c.disconnect(); } catch (Exception ignored) {}
@@ -259,7 +240,6 @@ public class MainActivity extends Activity {
     private void readCategoriesFromStream(InputStream is) throws Exception {
         itemCats.clear();
         catCounts.clear();
-
         BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
         String line;
         while ((line = br.readLine()) != null) {
@@ -271,8 +251,6 @@ public class MainActivity extends Activity {
             catCounts.put(cat, (old == null) ? 1 : (old + 1));
         }
         br.close();
-
-        // se número de categorias não bate com o de itens, ajusta
         if (!items.isEmpty() && itemCats.size() != items.size()) {
             int n = Math.min(itemCats.size(), items.size());
             while (itemCats.size() > n) itemCats.remove(itemCats.size() - 1);
@@ -289,33 +267,33 @@ public class MainActivity extends Activity {
         return null;
     }
 
-    /* ======================
-       UI de categorias
-       ====================== */
-
+    // === UI categorias (chips) ===
     private void buildCategoryBar() {
         catBar.removeAllViews();
-        // Sempre tem "Todos" (se soubermos as contagens, usamos; senão, total de itens)
+        firstChipRef = null;
+
         int total = (!catCounts.isEmpty()) ? totalCountAll() : items.size();
-        addCategoryChip("Todos", total);
+        addCategoryChip("Todos", total, true); // primeiro chip
 
         for (Map.Entry<String, Integer> e : catCounts.entrySet()) {
-            addCategoryChip(e.getKey(), e.getValue());
+            addCategoryChip(e.getKey(), e.getValue(), false);
         }
         highlightSelected("Todos");
     }
 
-    private void addCategoryChip(final String cat, int count) {
+    private void addCategoryChip(final String cat, int count, boolean first) {
         final TextView chip = new TextView(this);
         chip.setText(cat + " (" + count + ")");
         chip.setSingleLine(true);
         chip.setPadding(dp(14), dp(8), dp(14), dp(8));
         chip.setGravity(Gravity.CENTER_VERTICAL);
         chip.setTextSize(14);
+        chip.setFocusable(true);
+        chip.setFocusableInTouchMode(true);
 
         GradientDrawable bg = new GradientDrawable();
         bg.setColor(0xFF2B3350);
-        bg.setCornerRadius(dp(14));
+        bg.setCornerRadius(dp(16));
         chip.setBackgroundDrawable(bg);
         chip.setTextColor(0xFFEFEFEF);
 
@@ -328,6 +306,23 @@ public class MainActivity extends Activity {
             applyFilter(cat);
             highlightSelected(cat);
         });
+
+        // DPAD ↓ do chip leva à lista
+        chip.setOnKeyListener((v, keyCode, event) -> {
+            if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DPAD_DOWN) {
+                listView.requestFocus();
+                listView.setSelection(0);
+                return true;
+            }
+            return false;
+        });
+
+        // guarda o primeiro para o DPAD ↑ da lista
+        if (first) {
+            chip.setId(ID_FIRST_CHIP);
+            firstChipRef = chip;
+        }
+
         catBar.addView(chip);
     }
 
@@ -365,7 +360,6 @@ public class MainActivity extends Activity {
             }
         }
         adapter.notifyDataSetChanged();
-        // traz a lista para o topo ao trocar de categoria
         listView.setSelection(0);
     }
 
