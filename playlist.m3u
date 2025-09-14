@@ -1,14 +1,270 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="nsctvchapecó.br" tvg-name="Caze 2" tvg-logo="http://im.robx9.top:80/images/6662eb4f0f7e19d49ce93a762a9874da.png" group-title="Canais | ✨ Globos Sul",Caze 1
-https://manifest.googlevideo.com/api/manifest/hls_variant/expire/1756697312/ei/gL60aNzhNZGL9cYPobnAYQ/ip/131.100.98.51/id/ykLNYbfOoTk.3~45706994/source/yt_live_broadcast/requiressl/yes/xpc/EgVo2aDSNQ%3D%3D/tx/51539854/txs/51539853%2C51539854%2C51539855/hfr/1/ctier/SPL/playlist_duration/30/manifest_duration/30/maudio/1/gcr/br/ss/1/bui/AY1jyLMFof0PyACyrIleB_OD9BM0RPMCLQXiEj2foIetxyg06Pc7xyTj4qYwwRESt0v3_HhYVckFs0rc/spc/l3OVKSg44w7hOfrxpy-gxQTqSBaSy0oUC6LuUh89Akkc0bP4UREa-AYHsE8VNkOL3F0/vprv/1/go/1/rqh/5/pacing/0/nvgoi/1/ncsapi/1/keepalive/yes/fexp/51355912%2C51552689%2C51565116%2C51565681%2C51580968/dover/11/itag/0/playlist_type/DVR/sparams/expire%2Cei%2Cip%2Cid%2Csource%2Crequiressl%2Cxpc%2Ctx%2Ctxs%2Chfr%2Cctier%2Cplaylist_duration%2Cmanifest_duration%2Cmaudio%2Cgcr%2Css%2Cbui%2Cspc%2Cvprv%2Cgo%2Crqh%2Citag%2Cplaylist_type/sig/AJfQdSswRQIgXANPlr7mWYDUpdMDZxYhrj51deO8Zyhis2A1g4jwu60CIQDcPO8PPGP87J81fjVbkZOEDLiiMnSH26yvM5uERjao8A%3D%3D/file/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Evento 01" tvg-logo="https://iili.io/KH44RwX.png" group-title="Canais | ⭐ Area do Cliente",Evento 01
+http://getxc.top:80/joao2025@@@/joao20252025/2108551.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Evento. 02" tvg-logo="https://iili.io/KH44RwX.png" group-title="Canais | ⭐ Area do Cliente",Evento. 02
+http://getxc.top:80/joao2025@@@/joao20252025/2108550.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Evento 03" tvg-logo="https://iili.io/KH44RwX.png" group-title="Canais | ⭐ Area do Cliente",Evento 03
+http://getxc.top:80/joao2025@@@/joao20252025/2108549.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Evento 04" tvg-logo="https://iili.io/KH44RwX.png" group-title="Canais | ⭐ Area do Cliente",Evento 04
+http://getxc.top:80/joao2025@@@/joao20252025/2108548.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Apple TV 1 HD" tvg-logo="https://www.rochagalaxia.live/logos/apple-tv250.png" group-title="Canais | ⚽ PPV",Apple TV 1 HD
+http://getxc.top:80/joao2025@@@/joao20252025/998.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Apple TV 2 HD" tvg-logo="https://www.rochagalaxia.live/logos/apple-tv250.png" group-title="Canais | ⚽ PPV",Apple TV 2 HD
+http://getxc.top:80/joao2025@@@/joao20252025/999.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Apple TV 3 HD" tvg-logo="https://www.rochagalaxia.live/logos/apple-tv250.png" group-title="Canais | ⚽ PPV",Apple TV 3 HD
+http://getxc.top:80/joao2025@@@/joao20252025/2092041.m3u8
+#EXTINF:-1 tvg-id="bandsports.br" tvg-name="Band Sports +HD" tvg-logo="http://im.robx9.top:80/images/298c6767b222a70fe4d8c45e03f8754e.png" group-title="Canais | ⚽ Esportes",Band Sports +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2197.m3u8
+#EXTINF:-1 tvg-id="bandsports.br" tvg-name="Band Sports FHD" tvg-logo="http://im.robx9.top:80/images/6c0e720b28ab0e579c373c9a4ec20495.png" group-title="Canais | ⚽ Esportes",Band Sports FHD
+http://getxc.top:80/joao2025@@@/joao20252025/65.m3u8
+#EXTINF:-1 tvg-id="bandsports.br" tvg-name="Band Sports FHD [H265]" tvg-logo="http://im.robx9.top:80/images/6c0e720b28ab0e579c373c9a4ec20495.png" group-title="Canais | ⚽ Esportes",Band Sports FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/64.m3u8
+#EXTINF:-1 tvg-id="bandsports.br" tvg-name="Band Sports HD" tvg-logo="http://im.robx9.top:80/images/6c0e720b28ab0e579c373c9a4ec20495.png" group-title="Canais | ⚽ Esportes",Band Sports HD
+http://getxc.top:80/joao2025@@@/joao20252025/66.m3u8
+#EXTINF:-1 tvg-id="bandsports.br" tvg-name="Band Sports SD" tvg-logo="http://im.robx9.top:80/images/6c0e720b28ab0e579c373c9a4ec20495.png" group-title="Canais | ⚽ Esportes",Band Sports SD
+http://getxc.top:80/joao2025@@@/joao20252025/67.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Canal Brtvmax 1 (Eventos)" tvg-logo="https://iili.io/dljHdl4.png" group-title="Canais | ⚽ PPV",Canal Brtvmax 1 (Eventos)
+http://getxc.top:80/joao2025@@@/joao20252025/2032993.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Canal Carros (Evento)" tvg-logo="https://iili.io/dlhtfCQ.png" group-title="Canais | ⚽ PPV",Canal Carros (Evento)
+http://getxc.top:80/joao2025@@@/joao20252025/2032999.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Canal do Surf (Evento)" tvg-logo="https://iili.io/dlhtfCQ.png" group-title="Canais | ⚽ PPV",Canal do Surf (Evento)
+http://getxc.top:80/joao2025@@@/joao20252025/2032997.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Canal do Volei (Evento)" tvg-logo="https://iili.io/dlhtfCQ.png" group-title="Canais | ⚽ PPV",Canal do Volei (Evento)
+http://getxc.top:80/joao2025@@@/joao20252025/2032998.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Canal Lutas (Evento)" tvg-logo="https://iili.io/dlhtfCQ.png" group-title="Canais | ⚽ PPV",Canal Lutas (Evento)
+http://getxc.top:80/joao2025@@@/joao20252025/2032995.m3u8
+#EXTINF:-1 tvg-id="off.br" tvg-name="Canal Off +HD" tvg-logo="https://acstatic.co/logos/canais/off.png" group-title="Canais | ⚽ Esportes",Canal Off +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2260.m3u8
+#EXTINF:-1 tvg-id="off.br" tvg-name="Canal Off FHD" tvg-logo="https://acstatic.co/logos/canais/off.png" group-title="Canais | ⚽ Esportes",Canal Off FHD
+http://getxc.top:80/joao2025@@@/joao20252025/113.m3u8
+#EXTINF:-1 tvg-id="off.br" tvg-name="Canal Off HD" tvg-logo="https://acstatic.co/logos/canais/off.png" group-title="Canais | ⚽ Esportes",Canal Off HD
+http://getxc.top:80/joao2025@@@/joao20252025/114.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Canal Vaquejada (Evento)" tvg-logo="https://iili.io/dlhtfCQ.png" group-title="Canais | ⚽ PPV",Canal Vaquejada (Evento)
+http://getxc.top:80/joao2025@@@/joao20252025/2032996.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Caze TV 1 HD" tvg-logo="http://im.robx9.top:80/images/4c5bcfec8584af0d967f1ab10179ca4b.png" group-title="Canais | ⚽ PPV",Caze TV 1 HD
+http://getxc.top:80/joao2025@@@/joao20252025/183037.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Caze TV 2 HD" tvg-logo="http://im.robx9.top:80/images/4c5bcfec8584af0d967f1ab10179ca4b.png" group-title="Canais | ⚽ PPV",Caze TV 2 HD
+http://getxc.top:80/joao2025@@@/joao20252025/183038.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Caze TV 3 HD" tvg-logo="http://im.robx9.top:80/images/4c5bcfec8584af0d967f1ab10179ca4b.png" group-title="Canais | ⚽ PPV",Caze TV 3 HD
+http://getxc.top:80/joao2025@@@/joao20252025/183039.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Cazé TV 1 HD²" tvg-logo="http://im.robx9.top:80/images/4c5bcfec8584af0d967f1ab10179ca4b.png" group-title="Canais | ⚽ PPV",Cazé TV 1 HD²
+http://getxc.top:80/joao2025@@@/joao20252025/30849.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Cazé TV 2 HD²" tvg-logo="http://im.robx9.top:80/images/4c5bcfec8584af0d967f1ab10179ca4b.png" group-title="Canais | ⚽ PPV",Cazé TV 2 HD²
+http://getxc.top:80/joao2025@@@/joao20252025/59737.m3u8
+#EXTINF:-1 tvg-id="disneyplus" tvg-name="Disney+ 1 HD" tvg-logo="https://iili.io/d7mVYhv.png" group-title="Canais | ⚽ Disney+",Disney+ 1 HD
+http://getxc.top:80/joao2025@@@/joao20252025/196060.m3u8
+#EXTINF:-1 tvg-id="disneyplus" tvg-name="Disney+ 1²" tvg-logo="https://iili.io/d7mVYhv.png" group-title="Canais | ⚽ Disney+",Disney+ 1²
+http://getxc.top:80/joao2025@@@/joao20252025/1010.m3u8
+#EXTINF:-1 tvg-id="disneyplus" tvg-name="Disney+ 2 HD" tvg-logo="https://iili.io/d7mVYhv.png" group-title="Canais | ⚽ Disney+",Disney+ 2 HD
+http://getxc.top:80/joao2025@@@/joao20252025/196061.m3u8
+#EXTINF:-1 tvg-id="disneyplus" tvg-name="Disney+ 2²" tvg-logo="https://iili.io/d7mVYhv.png" group-title="Canais | ⚽ Disney+",Disney+ 2²
+http://getxc.top:80/joao2025@@@/joao20252025/1011.m3u8
+#EXTINF:-1 tvg-id="disneyplus" tvg-name="Disney+ 3 HD" tvg-logo="https://iili.io/d7mVYhv.png" group-title="Canais | ⚽ Disney+",Disney+ 3 HD
+http://getxc.top:80/joao2025@@@/joao20252025/196062.m3u8
+#EXTINF:-1 tvg-id="disneyplus" tvg-name="Disney+ 3²" tvg-logo="https://iili.io/d7mVYhv.png" group-title="Canais | ⚽ Disney+",Disney+ 3²
+http://getxc.top:80/joao2025@@@/joao20252025/1012.m3u8
+#EXTINF:-1 tvg-id="disneyplus" tvg-name="Disney+ 4 HD" tvg-logo="https://iili.io/d7mVYhv.png" group-title="Canais | ⚽ Disney+",Disney+ 4 HD
+http://getxc.top:80/joao2025@@@/joao20252025/196057.m3u8
+#EXTINF:-1 tvg-id="disneyplus" tvg-name="Disney+ 4²" tvg-logo="https://iili.io/d7mVYhv.png" group-title="Canais | ⚽ Disney+",Disney+ 4²
+http://getxc.top:80/joao2025@@@/joao20252025/1013.m3u8
+#EXTINF:-1 tvg-id="disneyplus" tvg-name="Disney+ 5 HD" tvg-logo="https://iili.io/d7mVYhv.png" group-title="Canais | ⚽ Disney+",Disney+ 5 HD
+http://getxc.top:80/joao2025@@@/joao20252025/196058.m3u8
+#EXTINF:-1 tvg-id="disneyplus" tvg-name="Disney+ 5²" tvg-logo="https://iili.io/d7mVYhv.png" group-title="Canais | ⚽ Disney+",Disney+ 5²
+http://getxc.top:80/joao2025@@@/joao20252025/1014.m3u8
+#EXTINF:-1 tvg-id="disneyplus" tvg-name="Disney+ 6²" tvg-logo="https://iili.io/d7mVYhv.png" group-title="Canais | ⚽ Disney+",Disney+ 6²
+http://getxc.top:80/joao2025@@@/joao20252025/1015.m3u8
+#EXTINF:-1 tvg-id="disneyplus" tvg-name="Disney+ 7²" tvg-logo="https://iili.io/d7mVYhv.png" group-title="Canais | ⚽ Disney+",Disney+ 7²
+http://getxc.top:80/joao2025@@@/joao20252025/1016.m3u8
+#EXTINF:-1 tvg-id="disneyplus" tvg-name="Disney+ 8²" tvg-logo="https://iili.io/d7mVYhv.png" group-title="Canais | ⚽ Disney+",Disney+ 8²
+http://getxc.top:80/joao2025@@@/joao20252025/2061198.m3u8
+#EXTINF:-1 tvg-id="disneyplus" tvg-name="Disney+ 9²" tvg-logo="https://iili.io/d7mVYhv.png" group-title="Canais | ⚽ Disney+",Disney+ 9²
+http://getxc.top:80/joao2025@@@/joao20252025/2061199.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="DSports HD" tvg-logo="https://iili.io/2ZWyDCu.jpg" group-title="Canais | ⚽ Esportes",DSports HD
+http://getxc.top:80/joao2025@@@/joao20252025/2076124.m3u8
+#EXTINF:-1 tvg-id="ELEVEN SPORTS 4 HD" tvg-name="Eleven Sports 4 HD" tvg-logo="http://im.robx9.top:80/images/0b45964f8a04a6c58cfa17874fc0ccfb.png" group-title="Canais | ⚽ PPV",Eleven Sports 4 HD
+http://getxc.top:80/joao2025@@@/joao20252025/811.m3u8
+#EXTINF:-1 tvg-id="ELEVEN SPORTS 5" tvg-name="Eleven Sports 5 HD" tvg-logo="http://im.robx9.top:80/images/0b45964f8a04a6c58cfa17874fc0ccfb.png" group-title="Canais | ⚽ PPV",Eleven Sports 5 HD
+http://getxc.top:80/joao2025@@@/joao20252025/808.m3u8
+#EXTINF:-1 tvg-id="ELEVEN SPORTS 6 HD" tvg-name="Eleven Sports 6 HD" tvg-logo="http://im.robx9.top:80/images/0b45964f8a04a6c58cfa17874fc0ccfb.png" group-title="Canais | ⚽ PPV",Eleven Sports 6 HD
+http://getxc.top:80/joao2025@@@/joao20252025/805.m3u8
+#EXTINF:-1 tvg-id="espn.br" tvg-name="ESPN 2 +HD" tvg-logo="https://iili.io/JvcX1C7.png" group-title="Canais | ⚽ ESPN",ESPN 2 +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2223.m3u8
+#EXTINF:-1 tvg-id="espn.br" tvg-name="ESPN 2 FHD" tvg-logo="https://iili.io/JvcX1C7.png" group-title="Canais | ⚽ ESPN",ESPN 2 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/229.m3u8
+#EXTINF:-1 tvg-id="espn.br" tvg-name="ESPN 2 FHD [H265]" tvg-logo="https://iili.io/JvcX1C7.png" group-title="Canais | ⚽ ESPN",ESPN 2 FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/228.m3u8
+#EXTINF:-1 tvg-id="espn.br" tvg-name="ESPN 2 HD" tvg-logo="https://iili.io/JvcX1C7.png" group-title="Canais | ⚽ ESPN",ESPN 2 HD
+http://getxc.top:80/joao2025@@@/joao20252025/230.m3u8
+#EXTINF:-1 tvg-id="espn.br" tvg-name="ESPN 2 SD" tvg-logo="https://iili.io/JvcX1C7.png" group-title="Canais | ⚽ ESPN",ESPN 2 SD
+http://getxc.top:80/joao2025@@@/joao20252025/231.m3u8
+#EXTINF:-1 tvg-id="espn3.br" tvg-name="ESPN 3 +HD" tvg-logo="https://iili.io/JvcXhyx.png" group-title="Canais | ⚽ ESPN",ESPN 3 +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2224.m3u8
+#EXTINF:-1 tvg-id="espn3.br" tvg-name="ESPN 3 FHD" tvg-logo="https://iili.io/JvcXhyx.png" group-title="Canais | ⚽ ESPN",ESPN 3 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/233.m3u8
+#EXTINF:-1 tvg-id="espn3.br" tvg-name="ESPN 3 FHD [H265]" tvg-logo="https://iili.io/JvcXhyx.png" group-title="Canais | ⚽ ESPN",ESPN 3 FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/232.m3u8
+#EXTINF:-1 tvg-id="espn3.br" tvg-name="ESPN 3 HD" tvg-logo="https://iili.io/JvcXhyx.png" group-title="Canais | ⚽ ESPN",ESPN 3 HD
+http://getxc.top:80/joao2025@@@/joao20252025/234.m3u8
+#EXTINF:-1 tvg-id="espn3.br" tvg-name="ESPN 3 SD" tvg-logo="https://iili.io/JvcXhyx.png" group-title="Canais | ⚽ ESPN",ESPN 3 SD
+http://getxc.top:80/joao2025@@@/joao20252025/235.m3u8
+#EXTINF:-1 tvg-id="espn4.br" tvg-name="ESPN 4 +HD" tvg-logo="https://iili.io/JvcXmas.png" group-title="Canais | ⚽ ESPN",ESPN 4 +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2225.m3u8
+#EXTINF:-1 tvg-id="espn4.br" tvg-name="ESPN 4 FHD" tvg-logo="https://iili.io/JvcXmas.png" group-title="Canais | ⚽ ESPN",ESPN 4 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/237.m3u8
+#EXTINF:-1 tvg-id="espn4.br" tvg-name="ESPN 4 FHD [H265]" tvg-logo="https://iili.io/JvcXmas.png" group-title="Canais | ⚽ ESPN",ESPN 4 FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/236.m3u8
+#EXTINF:-1 tvg-id="espn4.br" tvg-name="ESPN 4 HD" tvg-logo="https://iili.io/JvcXmas.png" group-title="Canais | ⚽ ESPN",ESPN 4 HD
+http://getxc.top:80/joao2025@@@/joao20252025/238.m3u8
+#EXTINF:-1 tvg-id="espn4.br" tvg-name="ESPN 4 SD" tvg-logo="https://iili.io/JvcXmas.png" group-title="Canais | ⚽ ESPN",ESPN 4 SD
+http://getxc.top:80/joao2025@@@/joao20252025/239.m3u8
+#EXTINF:-1 tvg-id="foxsports2.br" tvg-name="ESPN 5 +HD" tvg-logo="https://iili.io/JvcjT5G.png" group-title="Canais | ⚽ ESPN",ESPN 5 +HD
+http://getxc.top:80/joao2025@@@/joao20252025/197137.m3u8
+#EXTINF:-1 tvg-id="foxsports2.br" tvg-name="ESPN 5 FHD" tvg-logo="https://iili.io/JvcjT5G.png" group-title="Canais | ⚽ ESPN",ESPN 5 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/258.m3u8
+#EXTINF:-1 tvg-id="foxsports2.br" tvg-name="ESPN 5 HD" tvg-logo="https://iili.io/JvcjT5G.png" group-title="Canais | ⚽ ESPN",ESPN 5 HD
+http://getxc.top:80/joao2025@@@/joao20252025/197136.m3u8
+#EXTINF:-1 tvg-id="foxsports2.br" tvg-name="ESPN 5 HD" tvg-logo="https://iili.io/JvcjT5G.png" group-title="Canais | ⚽ ESPN",ESPN 5 HD
+http://getxc.top:80/joao2025@@@/joao20252025/259.m3u8
+#EXTINF:-1 tvg-id="foxsports2.br" tvg-name="ESPN 5 SD" tvg-logo="https://iili.io/JvcjT5G.png" group-title="Canais | ⚽ ESPN",ESPN 5 SD
+http://getxc.top:80/joao2025@@@/joao20252025/260.m3u8
+#EXTINF:-1 tvg-id="espn.extra.br" tvg-name="ESPN Extra +HD" tvg-logo="http://im.robx9.top:80/images/820e628618358cf1d72c62802a9e5b25.png" group-title="Canais | ⚽ ESPN",ESPN Extra +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2226.m3u8
+#EXTINF:-1 tvg-id="espn.extra.br" tvg-name="ESPN Extra FHD" tvg-logo="http://im.robx9.top:80/images/820e628618358cf1d72c62802a9e5b25.png" group-title="Canais | ⚽ ESPN",ESPN Extra FHD
+http://getxc.top:80/joao2025@@@/joao20252025/225.m3u8
+#EXTINF:-1 tvg-id="espn.extra.br" tvg-name="ESPN Extra FHD H265" tvg-logo="http://im.robx9.top:80/images/820e628618358cf1d72c62802a9e5b25.png" group-title="Canais | ⚽ ESPN",ESPN Extra FHD H265
+http://getxc.top:80/joao2025@@@/joao20252025/224.m3u8
+#EXTINF:-1 tvg-id="espn.extra.br" tvg-name="ESPN Extra HD" tvg-logo="http://im.robx9.top:80/images/820e628618358cf1d72c62802a9e5b25.png" group-title="Canais | ⚽ ESPN",ESPN Extra HD
+http://getxc.top:80/joao2025@@@/joao20252025/226.m3u8
+#EXTINF:-1 tvg-id="espn.extra.br" tvg-name="ESPN Extra SD" tvg-logo="http://im.robx9.top:80/images/820e628618358cf1d72c62802a9e5b25.png" group-title="Canais | ⚽ ESPN",ESPN Extra SD
+http://getxc.top:80/joao2025@@@/joao20252025/227.m3u8
+#EXTINF:-1 tvg-id="espnbrasil.br" tvg-name="ESPN FHD" tvg-logo="https://iili.io/JvcXCIp.png" group-title="Canais | ⚽ ESPN",ESPN FHD
+http://getxc.top:80/joao2025@@@/joao20252025/221.m3u8
+#EXTINF:-1 tvg-id="espnbrasil.br" tvg-name="ESPN FHD [H265]" tvg-logo="https://iili.io/JvcXCIp.png" group-title="Canais | ⚽ ESPN",ESPN FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/220.m3u8
+#EXTINF:-1 tvg-id="espnbrasil.br" tvg-name="ESPN HD" tvg-logo="https://iili.io/JvcXCIp.png" group-title="Canais | ⚽ ESPN",ESPN HD
+http://getxc.top:80/joao2025@@@/joao20252025/222.m3u8
+#EXTINF:-1 tvg-id="espnbrasil.br" tvg-name="ESPN HD+" tvg-logo="https://iili.io/JvcXCIp.png" group-title="Canais | ⚽ ESPN",ESPN HD+
+http://getxc.top:80/joao2025@@@/joao20252025/2076125.m3u8
+#EXTINF:-1 tvg-id="espnbrasil.br" tvg-name="ESPN HD²" tvg-logo="https://iili.io/JvcXCIp.png" group-title="Canais | ⚽ ESPN",ESPN HD²
+http://getxc.top:80/joao2025@@@/joao20252025/30887.m3u8
+#EXTINF:-1 tvg-id="espnbrasil.br" tvg-name="ESPN SD" tvg-logo="https://iili.io/JvcXCIp.png" group-title="Canais | ⚽ ESPN",ESPN SD
+http://getxc.top:80/joao2025@@@/joao20252025/223.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="FIFA+ 01 HD" tvg-logo="https://iili.io/3xb50R1.png" group-title="Canais | ⚽ PPV",FIFA+ 01 HD
+http://getxc.top:80/joao2025@@@/joao20252025/2084903.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="FIFA+ 02 HD" tvg-logo="https://iili.io/3xb50R1.png" group-title="Canais | ⚽ PPV",FIFA+ 02 HD
+http://getxc.top:80/joao2025@@@/joao20252025/2084904.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="FIFA+ 03 HD" tvg-logo="https://iili.io/3xb50R1.png" group-title="Canais | ⚽ PPV",FIFA+ 03 HD
+http://getxc.top:80/joao2025@@@/joao20252025/2084905.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Flamengo TV  (Evento)" tvg-logo="https://iili.io/dlhtfCQ.png" group-title="Canais | ⚽ PPV",Flamengo TV  (Evento)
+http://getxc.top:80/joao2025@@@/joao20252025/2032992.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="FLOGRAPPLING 1 FHD" tvg-logo="https://iili.io/dlhrbtI.png" group-title="Canais | ⚽ PPV",FLOGRAPPLING 1 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/2033000.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="FLOGRAPPLING 2 FHD" tvg-logo="https://iili.io/dlhrbtI.png" group-title="Canais | ⚽ PPV",FLOGRAPPLING 2 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/2033001.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="FLOGRAPPLING 3 FHD (Reprises)" tvg-logo="https://iili.io/dlhrbtI.png" group-title="Canais | ⚽ PPV",FLOGRAPPLING 3 FHD (Reprises)
+http://getxc.top:80/joao2025@@@/joao20252025/2033002.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Formula 1 TV HD" tvg-logo="https://iili.io/3xa0GdF.png" group-title="Canais | ⚽ PPV",Formula 1 TV HD
+http://getxc.top:80/joao2025@@@/joao20252025/2084690.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="GE TV" tvg-logo="https://iili.io/KBSVdnj.png" group-title="Canais | ⚽ Esportes",GE TV
+http://getxc.top:80/joao2025@@@/joao20252025/2109278.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="GOAT 1²" tvg-logo="http://im.robx9.top:80/images/a0cd9fc77b32e92b9015f047e9f07a05.png" group-title="Canais | ⚽ PPV",GOAT 1²
+http://getxc.top:80/joao2025@@@/joao20252025/185941.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="GOAT 2²" tvg-logo="http://im.robx9.top:80/images/a0cd9fc77b32e92b9015f047e9f07a05.png" group-title="Canais | ⚽ PPV",GOAT 2²
+http://getxc.top:80/joao2025@@@/joao20252025/185942.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="GOAT 3²" tvg-logo="http://im.robx9.top:80/images/a0cd9fc77b32e92b9015f047e9f07a05.png" group-title="Canais | ⚽ PPV",GOAT 3²
+http://getxc.top:80/joao2025@@@/joao20252025/189118.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Goat 4²" tvg-logo="http://im.robx9.top:80/images/a0cd9fc77b32e92b9015f047e9f07a05.png" group-title="Canais | ⚽ PPV",Goat 4²
+http://getxc.top:80/joao2025@@@/joao20252025/2003548.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="GOAT [Alt]" tvg-logo="http://im.robx9.top:80/images/a0cd9fc77b32e92b9015f047e9f07a05.png" group-title="Canais | ⚽ PPV",GOAT [Alt]
+http://getxc.top:80/joao2025@@@/joao20252025/189117.m3u8
+#EXTINF:-1 tvg-id="areadocliente" tvg-name="Jogos do Dia" tvg-logo="https://iili.io/FZZgkcx.png" group-title="Canais | ⭐ Area do Cliente",Jogos do Dia
+http://getxc.top:80/joao2025@@@/joao20252025/86702.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Liga Futsal 1 HD" tvg-logo="https://tvnsports-assets.s3.sa-east-1.amazonaws.com/App/Channel/000/000/005/pwa_logo/120/logo-lnftv.png" group-title="Canais | ⚽ PPV",Liga Futsal 1 HD
+http://getxc.top:80/joao2025@@@/joao20252025/201689.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Mulheres do Sertanejo 2023" tvg-logo="http://im.robx9.top:80/images/203e99cb097a9bc4da61343e0096d535.png" group-title="Canais | ✨ Músicas 24H",Mulheres do Sertanejo 2023
+http://getxc.top:80/joao2025@@@/joao20252025/185314.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Musicas - Pagode 2" tvg-logo="http://im.robx9.top:80/images/203e99cb097a9bc4da61343e0096d535.png" group-title="Canais | ✨ Músicas 24H",Musicas - Pagode 2
+http://getxc.top:80/joao2025@@@/joao20252025/193116.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Músicas - Eletrônica" tvg-logo="http://im.robx9.top:80/images/203e99cb097a9bc4da61343e0096d535.png" group-title="Canais | ✨ Músicas 24H",Músicas - Eletrônica
+http://getxc.top:80/joao2025@@@/joao20252025/3280.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Músicas - Forró" tvg-logo="http://im.robx9.top:80/images/203e99cb097a9bc4da61343e0096d535.png" group-title="Canais | ✨ Músicas 24H",Músicas - Forró
+http://getxc.top:80/joao2025@@@/joao20252025/3281.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Músicas - Funk" tvg-logo="http://im.robx9.top:80/images/203e99cb097a9bc4da61343e0096d535.png" group-title="Canais | ✨ Músicas 24H",Músicas - Funk
+http://getxc.top:80/joao2025@@@/joao20252025/3282.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Músicas - Funk Antigo" tvg-logo="http://im.robx9.top:80/images/203e99cb097a9bc4da61343e0096d535.png" group-title="Canais | ✨ Músicas 24H",Músicas - Funk Antigo
+http://getxc.top:80/joao2025@@@/joao20252025/47170.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Músicas - Gospel" tvg-logo="http://im.robx9.top:80/images/203e99cb097a9bc4da61343e0096d535.png" group-title="Canais | ✨ Músicas 24H",Músicas - Gospel
+http://getxc.top:80/joao2025@@@/joao20252025/3283.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Músicas - Linkin Park" tvg-logo="http://im.robx9.top:80/images/203e99cb097a9bc4da61343e0096d535.png" group-title="Canais | ✨ Músicas 24H",Músicas - Linkin Park
+http://getxc.top:80/joao2025@@@/joao20252025/47168.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Músicas - Pagode 1" tvg-logo="http://im.robx9.top:80/images/203e99cb097a9bc4da61343e0096d535.png" group-title="Canais | ✨ Músicas 24H",Músicas - Pagode 1
+http://getxc.top:80/joao2025@@@/joao20252025/3284.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Músicas - Pop" tvg-logo="http://im.robx9.top:80/images/203e99cb097a9bc4da61343e0096d535.png" group-title="Canais | ✨ Músicas 24H",Músicas - Pop
+http://getxc.top:80/joao2025@@@/joao20252025/3285.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Músicas - Pop Nacional" tvg-logo="http://im.robx9.top:80/images/203e99cb097a9bc4da61343e0096d535.png" group-title="Canais | ✨ Músicas 24H",Músicas - Pop Nacional
+http://getxc.top:80/joao2025@@@/joao20252025/3286.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Músicas - Rap" tvg-logo="http://im.robx9.top:80/images/203e99cb097a9bc4da61343e0096d535.png" group-title="Canais | ✨ Músicas 24H",Músicas - Rap
+http://getxc.top:80/joao2025@@@/joao20252025/3287.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Músicas - Sertanejo" tvg-logo="http://im.robx9.top:80/images/203e99cb097a9bc4da61343e0096d535.png" group-title="Canais | ✨ Músicas 24H",Músicas - Sertanejo
+http://getxc.top:80/joao2025@@@/joao20252025/3288.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Nadson O Ferinha" tvg-logo="http://im.robx9.top:80/images/203e99cb097a9bc4da61343e0096d535.png" group-title="Canais | ✨ Músicas 24H",Nadson O Ferinha
+http://getxc.top:80/joao2025@@@/joao20252025/185313.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Netflix Live 1 HD" tvg-logo="" group-title="Canais | ⚽ PPV",Netflix Live 1 HD
+http://getxc.top:80/joao2025@@@/joao20252025/2053802.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Netflix Live 2" tvg-logo="" group-title="Canais | ⚽ PPV",Netflix Live 2
+http://getxc.top:80/joao2025@@@/joao20252025/2053967.m3u8
 #EXTINF:-1 tvg-id="nsctvchapecó.br" tvg-name="NSC Chapeco FHD" tvg-logo="http://im.robx9.top:80/images/6662eb4f0f7e19d49ce93a762a9874da.png" group-title="Canais | ✨ Globos Sul",NSC Chapeco FHD
 http://getxc.top:80/joao2025@@@/joao20252025/880.m3u8
 #EXTINF:-1 tvg-id="nsctvchapecó.br" tvg-name="NSC Chapeco HD" tvg-logo="http://im.robx9.top:80/images/6662eb4f0f7e19d49ce93a762a9874da.png" group-title="Canais | ✨ Globos Sul",NSC Chapeco HD
 http://getxc.top:80/joao2025@@@/joao20252025/881.m3u8
-#EXTINF:-1 tvg-id="premiereclubes.br" tvg-name="Premiere Clubes HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere Clubes HD
-http://getxc.top:80/joao2025@@@/joao20252025/492.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="NSports FHD" tvg-logo="" group-title="Canais | ⚽ Esportes",NSports FHD
+http://getxc.top:80/joao2025@@@/joao20252025/203296.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="NSports HD" tvg-logo="" group-title="Canais | ⚽ Esportes",NSports HD
+http://getxc.top:80/joao2025@@@/joao20252025/203295.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="OneFootball 01" tvg-logo="https://iili.io/JGsJnl2.png" group-title="Canais | ⚽ PPV",OneFootball 01
+http://getxc.top:80/joao2025@@@/joao20252025/2035148.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="OneFootball 02" tvg-logo="https://iili.io/JGsJnl2.png" group-title="Canais | ⚽ PPV",OneFootball 02
+http://getxc.top:80/joao2025@@@/joao20252025/2035149.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="OneFootball 03" tvg-logo="https://iili.io/JGsJnl2.png" group-title="Canais | ⚽ PPV",OneFootball 03
+http://getxc.top:80/joao2025@@@/joao20252025/2035150.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="OneFootball 04" tvg-logo="https://iili.io/JGsJnl2.png" group-title="Canais | ⚽ PPV",OneFootball 04
+http://getxc.top:80/joao2025@@@/joao20252025/2035151.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="OneFootball 05" tvg-logo="https://iili.io/JGsJnl2.png" group-title="Canais | ⚽ PPV",OneFootball 05
+http://getxc.top:80/joao2025@@@/joao20252025/2036310.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="OneFootball 06" tvg-logo="https://iili.io/JGsJnl2.png" group-title="Canais | ⚽ PPV",OneFootball 06
+http://getxc.top:80/joao2025@@@/joao20252025/2036311.m3u8
+#EXTINF:-1 tvg-id="Paramount+" tvg-name="Paramount+ 1 FHD" tvg-logo="http://im.robx9.top:80/images/6597d860812ec0467a73594d63e85b5b.png" group-title="Canais | ⚽ Paramount+",Paramount+ 1 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/165.m3u8
+#EXTINF:-1 tvg-id="Paramount+" tvg-name="Paramount+ 1 HD" tvg-logo="http://im.robx9.top:80/images/6597d860812ec0467a73594d63e85b5b.png" group-title="Canais | ⚽ Paramount+",Paramount+ 1 HD
+http://getxc.top:80/joao2025@@@/joao20252025/764.m3u8
+#EXTINF:-1 tvg-id="Paramount+" tvg-name="Paramount+ 1 HD²" tvg-logo="http://im.robx9.top:80/images/6597d860812ec0467a73594d63e85b5b.png" group-title="Canais | ⚽ Paramount+",Paramount+ 1 HD²
+http://getxc.top:80/joao2025@@@/joao20252025/31021.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Paramount+ 1 SD" tvg-logo="http://im.robx9.top:80/images/6597d860812ec0467a73594d63e85b5b.png" group-title="Canais | ⚽ Paramount+",Paramount+ 1 SD
+http://getxc.top:80/joao2025@@@/joao20252025/2092466.m3u8
+#EXTINF:-1 tvg-id="Paramount+" tvg-name="Paramount+ 2 FHD" tvg-logo="http://im.robx9.top:80/images/6597d860812ec0467a73594d63e85b5b.png" group-title="Canais | ⚽ Paramount+",Paramount+ 2 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/166.m3u8
+#EXTINF:-1 tvg-id="Paramount+" tvg-name="Paramount+ 2 HD" tvg-logo="http://im.robx9.top:80/images/6597d860812ec0467a73594d63e85b5b.png" group-title="Canais | ⚽ Paramount+",Paramount+ 2 HD
+http://getxc.top:80/joao2025@@@/joao20252025/765.m3u8
+#EXTINF:-1 tvg-id="Paramount+" tvg-name="Paramount+ 2 HD²" tvg-logo="http://im.robx9.top:80/images/6597d860812ec0467a73594d63e85b5b.png" group-title="Canais | ⚽ Paramount+",Paramount+ 2 HD²
+http://getxc.top:80/joao2025@@@/joao20252025/31022.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Paramount+ 2 SD" tvg-logo="http://im.robx9.top:80/images/6597d860812ec0467a73594d63e85b5b.png" group-title="Canais | ⚽ Paramount+",Paramount+ 2 SD
+http://getxc.top:80/joao2025@@@/joao20252025/2092467.m3u8
+#EXTINF:-1 tvg-id="Paramount+" tvg-name="Paramount+ 3 FHD" tvg-logo="http://im.robx9.top:80/images/6597d860812ec0467a73594d63e85b5b.png" group-title="Canais | ⚽ Paramount+",Paramount+ 3 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/167.m3u8
+#EXTINF:-1 tvg-id="Paramount+" tvg-name="Paramount+ 3 HD" tvg-logo="http://im.robx9.top:80/images/6597d860812ec0467a73594d63e85b5b.png" group-title="Canais | ⚽ Paramount+",Paramount+ 3 HD
+http://getxc.top:80/joao2025@@@/joao20252025/766.m3u8
+#EXTINF:-1 tvg-id="Paramount+" tvg-name="Paramount+ 3 HD²" tvg-logo="http://im.robx9.top:80/images/6597d860812ec0467a73594d63e85b5b.png" group-title="Canais | ⚽ Paramount+",Paramount+ 3 HD²
+http://getxc.top:80/joao2025@@@/joao20252025/2005122.m3u8
+#EXTINF:-1 tvg-id="Paramount+" tvg-name="Paramount+ 4 FHD" tvg-logo="http://im.robx9.top:80/images/6597d860812ec0467a73594d63e85b5b.png" group-title="Canais | ⚽ Paramount+",Paramount+ 4 FHD
+http://getxc.top:80/joao2025@@@/joao20252025/168.m3u8
+#EXTINF:-1 tvg-id="Paramount+" tvg-name="Paramount+ 4 HD" tvg-logo="http://im.robx9.top:80/images/6597d860812ec0467a73594d63e85b5b.png" group-title="Canais | ⚽ Paramount+",Paramount+ 4 HD
+http://getxc.top:80/joao2025@@@/joao20252025/767.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Power Slap HD" tvg-logo="https://iili.io/dlhtfCQ.png" group-title="Canais | ⚽ PPV",Power Slap HD
+http://getxc.top:80/joao2025@@@/joao20252025/2034412.m3u8
 #EXTINF:-1 tvg-id="premiereclubes.br" tvg-name="Premiere Clubes FHD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere Clubes FHD
 http://getxc.top:80/joao2025@@@/joao20252025/491.m3u8
+#EXTINF:-1 tvg-id="premiereclubes.br" tvg-name="Premiere Clubes HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere Clubes HD
+http://getxc.top:80/joao2025@@@/joao20252025/492.m3u8
 #EXTINF:-1 tvg-id="premiere2.br" tvg-name="Premiere 2 HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 2 HD
 http://getxc.top:80/joao2025@@@/joao20252025/468.m3u8
 #EXTINF:-1 tvg-id="premiere3.br" tvg-name="Premiere 3 HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 3 HD
@@ -23,12 +279,198 @@ http://getxc.top:80/joao2025@@@/joao20252025/484.m3u8
 http://getxc.top:80/joao2025@@@/joao20252025/488.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="Premiere 8 HD" tvg-logo="http://im.robx9.top:80/images/bd3ac0e6f20f98e164eba821e2f03ab6.png" group-title="Canais | ⚽ Premiere",Premiere 8 HD
 http://getxc.top:80/joao2025@@@/joao20252025/54095.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="PT: Eurosport 1 HD" tvg-logo="https://iili.io/2E9RIOQ.jpg" group-title="Canais | ⚽ PPV",PT: Eurosport 1 HD
+http://getxc.top:80/joao2025@@@/joao20252025/2060087.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="PT: Eurosport 2 HD" tvg-logo="https://iili.io/2E9ALDN.jpg" group-title="Canais | ⚽ PPV",PT: Eurosport 2 HD
+http://getxc.top:80/joao2025@@@/joao20252025/2060086.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="PT: Sport TV 2 HD" tvg-logo="http://im.robx9.top:80/images/3ee8396e837627bbac7bf84dcf10bafd.png" group-title="Canais | ⚽ PPV",PT: Sport TV 2 HD
+http://getxc.top:80/joao2025@@@/joao20252025/999799.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="PT: Sport TV 4 HD" tvg-logo="http://im.robx9.top:80/images/3ee8396e837627bbac7bf84dcf10bafd.png" group-title="Canais | ⚽ PPV",PT: Sport TV 4 HD
+http://getxc.top:80/joao2025@@@/joao20252025/999793.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Red Bull TV HD" tvg-logo="https://iili.io/3kGPWvV.png" group-title="Canais | ⚽ Esportes",Red Bull TV HD
+http://getxc.top:80/joao2025@@@/joao20252025/2092800.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Rede Furacao HD" tvg-logo="https://i.imgur.com/e3M5vvr.png" group-title="Canais | ⚽ PPV",Rede Furacao HD
+http://getxc.top:80/joao2025@@@/joao20252025/187799.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Rede Furacão HD²" tvg-logo="https://i.imgur.com/e3M5vvr.png" group-title="Canais | ⚽ PPV",Rede Furacão HD²
+http://getxc.top:80/joao2025@@@/joao20252025/186152.m3u8
+#EXTINF:-1 tvg-id="sbt.maceio.br" tvg-name="Sbt Alagoas TV Ponta Verde" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt Alagoas TV Ponta Verde
+http://getxc.top:80/joao2025@@@/joao20252025/848.m3u8
+#EXTINF:-1 tvg-id="sbt.brasilia.br" tvg-name="Sbt Brasilia" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt Brasilia
+http://getxc.top:80/joao2025@@@/joao20252025/559.m3u8
+#EXTINF:-1 tvg-id="sbt.brasilia.br" tvg-name="Sbt BSB²" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt BSB²
+http://getxc.top:80/joao2025@@@/joao20252025/31062.m3u8
+#EXTINF:-1 tvg-id="sbt.cascavel.br" tvg-name="Sbt Castanhal (TV Paraense)" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt Castanhal (TV Paraense)
+http://getxc.top:80/joao2025@@@/joao20252025/847.m3u8
+#EXTINF:-1 tvg-id="redemassa.br" tvg-name="SBT Curitiba +HD" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",SBT Curitiba +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2273.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Sbt Interior" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt Interior
+http://getxc.top:80/joao2025@@@/joao20252025/560.m3u8
+#EXTINF:-1 tvg-id="sbt.br" tvg-name="Sbt Itapoan HD" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt Itapoan HD
+http://getxc.top:80/joao2025@@@/joao20252025/963.m3u8
+#EXTINF:-1 tvg-id="sbt.para.br" tvg-name="Sbt Pará" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt Pará
+http://getxc.top:80/joao2025@@@/joao20252025/561.m3u8
+#EXTINF:-1 tvg-id="sbt.piaui.br" tvg-name="Sbt Piaui" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt Piaui
+http://getxc.top:80/joao2025@@@/joao20252025/741.m3u8
+#EXTINF:-1 tvg-id="sbt.brasilia.br" tvg-name="Sbt RBS HD" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt RBS HD
+http://getxc.top:80/joao2025@@@/joao20252025/964.m3u8
+#EXTINF:-1 tvg-id="redemassa.br" tvg-name="SBT Rede Massa Curitiba HD" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",SBT Rede Massa Curitiba HD
+http://getxc.top:80/joao2025@@@/joao20252025/562.m3u8
+#EXTINF:-1 tvg-id="sbt.sao.paulo.br" tvg-name="Sbt Ribeirão Preto HD" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt Ribeirão Preto HD
+http://getxc.top:80/joao2025@@@/joao20252025/556.m3u8
+#EXTINF:-1 tvg-id="sbt.br" tvg-name="Sbt RJ FHD" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt RJ FHD
+http://getxc.top:80/joao2025@@@/joao20252025/564.m3u8
+#EXTINF:-1 tvg-id="sbt.br" tvg-name="Sbt RJ HD" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt RJ HD
+http://getxc.top:80/joao2025@@@/joao20252025/563.m3u8
+#EXTINF:-1 tvg-id="sbt.br" tvg-name="Sbt RN" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt RN
+http://getxc.top:80/joao2025@@@/joao20252025/743.m3u8
+#EXTINF:-1 tvg-id="sbt.rs.br" tvg-name="Sbt RS HD" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt RS HD
+http://getxc.top:80/joao2025@@@/joao20252025/739.m3u8
+#EXTINF:-1 tvg-id="sbtrs.br" tvg-name="Sbt RS HD" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt RS HD
+http://getxc.top:80/joao2025@@@/joao20252025/31070.m3u8
+#EXTINF:-1 tvg-id="sbt.santa.catarina.br" tvg-name="Sbt SCC HD" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt SCC HD
+http://getxc.top:80/joao2025@@@/joao20252025/566.m3u8
+#EXTINF:-1 tvg-id="sbt.goiania.serra.dourada.br" tvg-name="Sbt Serra Dourada" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt Serra Dourada
+http://getxc.top:80/joao2025@@@/joao20252025/567.m3u8
+#EXTINF:-1 tvg-id="sbt.br" tvg-name="Sbt SP +HD" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt SP +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2279.m3u8
+#EXTINF:-1 tvg-id="sbt.sao.paulo.br" tvg-name="Sbt SP FHD" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt SP FHD
+http://getxc.top:80/joao2025@@@/joao20252025/569.m3u8
+#EXTINF:-1 tvg-id="sbt.sao.paulo.br" tvg-name="Sbt SP FHD H265" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt SP FHD H265
+http://getxc.top:80/joao2025@@@/joao20252025/568.m3u8
+#EXTINF:-1 tvg-id="sbt.br" tvg-name="Sbt SP HD" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt SP HD
+http://getxc.top:80/joao2025@@@/joao20252025/570.m3u8
+#EXTINF:-1 tvg-id="sbt.sao.paulo.br" tvg-name="Sbt SP SD" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt SP SD
+http://getxc.top:80/joao2025@@@/joao20252025/571.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Sbt São Luiz MA" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt São Luiz MA
+http://getxc.top:80/joao2025@@@/joao20252025/565.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Sbt TV Alterosa FHD" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt TV Alterosa FHD
+http://getxc.top:80/joao2025@@@/joao20252025/965.m3u8
+#EXTINF:-1 tvg-id="a.e.br" tvg-name="Sbt TV Alterosa HD" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt TV Alterosa HD
+http://getxc.top:80/joao2025@@@/joao20252025/966.m3u8
+#EXTINF:-1 tvg-id="tvaratu.br" tvg-name="Sbt TV Aratu Bahia HD²" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt TV Aratu Bahia HD²
+http://getxc.top:80/joao2025@@@/joao20252025/572.m3u8
+#EXTINF:-1 tvg-id="tv.jornal.br" tvg-name="Sbt TV Jornal Recife" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt TV Jornal Recife
+http://getxc.top:80/joao2025@@@/joao20252025/574.m3u8
+#EXTINF:-1 tvg-id="tv.tambau.br" tvg-name="Sbt TV Tambau Paraiba" tvg-logo="http://im.robx9.top:80/images/8fb86e6eb9526bc48cb6a6e120bcd6dc.png" group-title="Canais | ✨SBT",Sbt TV Tambau Paraiba
+http://getxc.top:80/joao2025@@@/joao20252025/742.m3u8
 #EXTINF:-1 tvg-id="sportv.br" tvg-name="SporTV HD" tvg-logo="https://iili.io/JjILfQR.png" group-title="Canais | ⚽ SporTV",SporTV HD
 http://getxc.top:80/joao2025@@@/joao20252025/184471.m3u8
 #EXTINF:-1 tvg-id="sportv2.br" tvg-name="SporTV 2 HD" tvg-logo="https://iili.io/JjILgwJ.png" group-title="Canais | ⚽ SporTV",SporTV 2 HD
 http://getxc.top:80/joao2025@@@/joao20252025/592.m3u8
 #EXTINF:-1 tvg-id="sportv3.br" tvg-name="SporTV 3 HD" tvg-logo="https://iili.io/JjILZ8X.png" group-title="Canais | ⚽ SporTV",SporTV 3 HD
 http://getxc.top:80/joao2025@@@/joao20252025/596.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="SportyNet 01 HD (Youtube)" tvg-logo="https://iili.io/KKx3kPe.png" group-title="Canais | ⚽ SportyNet",SportyNet 01 HD (Youtube)
+http://getxc.top:80/joao2025@@@/joao20252025/2108542.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="SportyNet 02 HD (Youtube)" tvg-logo="https://iili.io/KKx3kPe.png" group-title="Canais | ⚽ SportyNet",SportyNet 02 HD (Youtube)
+http://getxc.top:80/joao2025@@@/joao20252025/2108543.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="SportyNet 03 HD (Youtube)" tvg-logo="https://iili.io/KKx3kPe.png" group-title="Canais | ⚽ SportyNet",SportyNet 03 HD (Youtube)
+http://getxc.top:80/joao2025@@@/joao20252025/2108544.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="SportyNet 04 HD (Youtube)" tvg-logo="https://iili.io/KKx3kPe.png" group-title="Canais | ⚽ SportyNet",SportyNet 04 HD (Youtube)
+http://getxc.top:80/joao2025@@@/joao20252025/2108545.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="SportyNet 05 HD (Youtube)" tvg-logo="https://iili.io/KKx3kPe.png" group-title="Canais | ⚽ SportyNet",SportyNet 05 HD (Youtube)
+http://getxc.top:80/joao2025@@@/joao20252025/2108546.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="SportyNet 06 HD (Youtube)" tvg-logo="https://iili.io/KKx3kPe.png" group-title="Canais | ⚽ SportyNet",SportyNet 06 HD (Youtube)
+http://getxc.top:80/joao2025@@@/joao20252025/2108547.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="SportyNet 1" tvg-logo="http://im.robx9.top:80/images/13adbfccabe292e435799919bdc199ee.png" group-title="Canais | ⚽ SportyNet",SportyNet 1
+http://getxc.top:80/joao2025@@@/joao20252025/744.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="SportyNet 1²" tvg-logo="http://www.rochagalaxia.live/logos/nosso-futebol250.png" group-title="Canais | ⚽ SportyNet",SportyNet 1²
+http://getxc.top:80/joao2025@@@/joao20252025/190737.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="SportyNet 2²" tvg-logo="http://www.rochagalaxia.live/logos/nosso-futebol250.png" group-title="Canais | ⚽ SportyNet",SportyNet 2²
+http://getxc.top:80/joao2025@@@/joao20252025/2070494.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="SportyNet 3²" tvg-logo="http://www.rochagalaxia.live/logos/nosso-futebol250.png" group-title="Canais | ⚽ SportyNet",SportyNet 3²
+http://getxc.top:80/joao2025@@@/joao20252025/2070495.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="SportyNet 4²" tvg-logo="http://www.rochagalaxia.live/logos/nosso-futebol250.png" group-title="Canais | ⚽ SportyNet",SportyNet 4²
+http://getxc.top:80/joao2025@@@/joao20252025/2070496.m3u8
+#EXTINF:-1 tvg-id="telecineaction.br" tvg-name="TC Action +HD" tvg-logo="http://im.robx9.top:80/images/ccfd33ddfe419548c76d5b8fcb1fb875.png" group-title="Canais | ✨ Telecine",TC Action +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2097.m3u8
+#EXTINF:-1 tvg-id="telecineaction.br" tvg-name="TC Action HD" tvg-logo="http://im.robx9.top:80/images/ccfd33ddfe419548c76d5b8fcb1fb875.png" group-title="Canais | ✨ Telecine",TC Action HD
+http://getxc.top:80/joao2025@@@/joao20252025/620.m3u8
+#EXTINF:-1 tvg-id="telecineaction.br" tvg-name="TC Action FHD" tvg-logo="http://im.robx9.top:80/images/ccfd33ddfe419548c76d5b8fcb1fb875.png" group-title="Canais | ✨ Telecine",TC Action FHD
+http://getxc.top:80/joao2025@@@/joao20252025/619.m3u8
+#EXTINF:-1 tvg-id="telecineaction.br" tvg-name="TC Action FHD [H265]" tvg-logo="http://im.robx9.top:80/images/ccfd33ddfe419548c76d5b8fcb1fb875.png" group-title="Canais | ✨ Telecine",TC Action FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/618.m3u8
+#EXTINF:-1 tvg-id="telecineaction.br" tvg-name="TC Action SD" tvg-logo="http://im.robx9.top:80/images/ccfd33ddfe419548c76d5b8fcb1fb875.png" group-title="Canais | ✨ Telecine",TC Action SD
+http://getxc.top:80/joao2025@@@/joao20252025/621.m3u8
+#EXTINF:-1 tvg-id="telecinecult.br" tvg-name="TC Cult +HD" tvg-logo="http://im.robx9.top:80/images/60341b167b02ef0cb8e2d525d4e3f3dd.png" group-title="Canais | ✨ Telecine",TC Cult +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2098.m3u8
+#EXTINF:-1 tvg-id="telecinecult.br" tvg-name="TC Cult FHD" tvg-logo="http://im.robx9.top:80/images/60341b167b02ef0cb8e2d525d4e3f3dd.png" group-title="Canais | ✨ Telecine",TC Cult FHD
+http://getxc.top:80/joao2025@@@/joao20252025/623.m3u8
+#EXTINF:-1 tvg-id="telecinecult.br" tvg-name="TC Cult FHD H265" tvg-logo="http://im.robx9.top:80/images/60341b167b02ef0cb8e2d525d4e3f3dd.png" group-title="Canais | ✨ Telecine",TC Cult FHD H265
+http://getxc.top:80/joao2025@@@/joao20252025/622.m3u8
+#EXTINF:-1 tvg-id="telecinecult.br" tvg-name="TC Cult HD" tvg-logo="http://im.robx9.top:80/images/60341b167b02ef0cb8e2d525d4e3f3dd.png" group-title="Canais | ✨ Telecine",TC Cult HD
+http://getxc.top:80/joao2025@@@/joao20252025/624.m3u8
+#EXTINF:-1 tvg-id="telecinecult.br" tvg-name="TC Cult SD" tvg-logo="http://im.robx9.top:80/images/60341b167b02ef0cb8e2d525d4e3f3dd.png" group-title="Canais | ✨ Telecine",TC Cult SD
+http://getxc.top:80/joao2025@@@/joao20252025/625.m3u8
+#EXTINF:-1 tvg-id="telecinefun.br" tvg-name="TC Fun +HD" tvg-logo="http://im.robx9.top:80/images/316088bf2c043768954fa2b04a9008d2.png" group-title="Canais | ✨ Telecine",TC Fun +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2099.m3u8
+#EXTINF:-1 tvg-id="telecinefun.br" tvg-name="TC Fun FHD" tvg-logo="http://im.robx9.top:80/images/316088bf2c043768954fa2b04a9008d2.png" group-title="Canais | ✨ Telecine",TC Fun FHD
+http://getxc.top:80/joao2025@@@/joao20252025/627.m3u8
+#EXTINF:-1 tvg-id="telecinefun.br" tvg-name="TC Fun FHD H265" tvg-logo="http://im.robx9.top:80/images/316088bf2c043768954fa2b04a9008d2.png" group-title="Canais | ✨ Telecine",TC Fun FHD H265
+http://getxc.top:80/joao2025@@@/joao20252025/626.m3u8
+#EXTINF:-1 tvg-id="telecinefun.br" tvg-name="TC Fun HD" tvg-logo="http://im.robx9.top:80/images/316088bf2c043768954fa2b04a9008d2.png" group-title="Canais | ✨ Telecine",TC Fun HD
+http://getxc.top:80/joao2025@@@/joao20252025/628.m3u8
+#EXTINF:-1 tvg-id="telecinepipoca.br" tvg-name="TC Pipoca +HD" tvg-logo="http://im.robx9.top:80/images/cd40eb21ce6830e74ecc86d8051ce8e1.png" group-title="Canais | ✨ Telecine",TC Pipoca +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2100.m3u8
+#EXTINF:-1 tvg-id="telecinepipoca.br" tvg-name="TC Pipoca FHD" tvg-logo="http://im.robx9.top:80/images/cd40eb21ce6830e74ecc86d8051ce8e1.png" group-title="Canais | ✨ Telecine",TC Pipoca FHD
+http://getxc.top:80/joao2025@@@/joao20252025/631.m3u8
+#EXTINF:-1 tvg-id="telecinepipoca.br" tvg-name="TC Pipoca FHD [H265]" tvg-logo="http://im.robx9.top:80/images/cd40eb21ce6830e74ecc86d8051ce8e1.png" group-title="Canais | ✨ Telecine",TC Pipoca FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/630.m3u8
+#EXTINF:-1 tvg-id="telecinepipoca.br" tvg-name="TC Pipoca HD" tvg-logo="http://im.robx9.top:80/images/cd40eb21ce6830e74ecc86d8051ce8e1.png" group-title="Canais | ✨ Telecine",TC Pipoca HD
+http://getxc.top:80/joao2025@@@/joao20252025/632.m3u8
+#EXTINF:-1 tvg-id="telecinepipoca.br" tvg-name="TC Pipoca SD" tvg-logo="http://im.robx9.top:80/images/cd40eb21ce6830e74ecc86d8051ce8e1.png" group-title="Canais | ✨ Telecine",TC Pipoca SD
+http://getxc.top:80/joao2025@@@/joao20252025/633.m3u8
+#EXTINF:-1 tvg-id="telecinepremium.br" tvg-name="TC Premium +HD" tvg-logo="http://im.robx9.top:80/images/f8d2354ef0cde7800a0475f6babd211d.png" group-title="Canais | ✨ Telecine",TC Premium +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2101.m3u8
+#EXTINF:-1 tvg-id="telecinepremium.br" tvg-name="TC Premium FHD" tvg-logo="http://im.robx9.top:80/images/f8d2354ef0cde7800a0475f6babd211d.png" group-title="Canais | ✨ Telecine",TC Premium FHD
+http://getxc.top:80/joao2025@@@/joao20252025/635.m3u8
+#EXTINF:-1 tvg-id="telecinepremium.br" tvg-name="TC Premium FHD [H265]" tvg-logo="http://im.robx9.top:80/images/f8d2354ef0cde7800a0475f6babd211d.png" group-title="Canais | ✨ Telecine",TC Premium FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/634.m3u8
+#EXTINF:-1 tvg-id="telecinepremium.br" tvg-name="TC Premium HD" tvg-logo="http://im.robx9.top:80/images/f8d2354ef0cde7800a0475f6babd211d.png" group-title="Canais | ✨ Telecine",TC Premium HD
+http://getxc.top:80/joao2025@@@/joao20252025/636.m3u8
+#EXTINF:-1 tvg-id="telecinetouch.br" tvg-name="TC Touch +HD" tvg-logo="http://im.robx9.top:80/images/0c618fb6c4129f46029f8e7a9c7671d8.png" group-title="Canais | ✨ Telecine",TC Touch +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2102.m3u8
+#EXTINF:-1 tvg-id="telecinetouch.br" tvg-name="TC Touch HD" tvg-logo="http://im.robx9.top:80/images/0c618fb6c4129f46029f8e7a9c7671d8.png" group-title="Canais | ✨ Telecine",TC Touch HD
+http://getxc.top:80/joao2025@@@/joao20252025/640.m3u8
+#EXTINF:-1 tvg-id="telecinetouch.br" tvg-name="TC Touch FHD" tvg-logo="http://im.robx9.top:80/images/0c618fb6c4129f46029f8e7a9c7671d8.png" group-title="Canais | ✨ Telecine",TC Touch FHD
+http://getxc.top:80/joao2025@@@/joao20252025/639.m3u8
+#EXTINF:-1 tvg-id="telecinetouch.br" tvg-name="TC Touch FHD [H265]" tvg-logo="http://im.robx9.top:80/images/0c618fb6c4129f46029f8e7a9c7671d8.png" group-title="Canais | ✨ Telecine",TC Touch FHD [H265]
+http://getxc.top:80/joao2025@@@/joao20252025/638.m3u8
+#EXTINF:-1 tvg-id="telecinetouch.br" tvg-name="TC Touch SD" tvg-logo="http://im.robx9.top:80/images/0c618fb6c4129f46029f8e7a9c7671d8.png" group-title="Canais | ✨ Telecine",TC Touch SD
+http://getxc.top:80/joao2025@@@/joao20252025/641.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="US: NHL Network" tvg-logo="https://iili.io/d061qDF.png" group-title="Canais | ⚽ PPV",US: NHL Network
+http://getxc.top:80/joao2025@@@/joao20252025/2033212.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="WWE Fight Network HD²" tvg-logo="" group-title="Canais | ⚽ PPV",WWE Fight Network HD²
+http://getxc.top:80/joao2025@@@/joao20252025/2096688.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Xsports FHD" tvg-logo="https://i.imgur.com/FGCmwcn.png" group-title="Canais | ⚽ Esportes",Xsports FHD
+http://getxc.top:80/joao2025@@@/joao20252025/2106015.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Xsports FHD H265" tvg-logo="https://i.imgur.com/FGCmwcn.png" group-title="Canais | ⚽ Esportes",Xsports FHD H265
+http://getxc.top:80/joao2025@@@/joao20252025/2106698.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Xsports +HD" tvg-logo="https://i.imgur.com/FGCmwcn.png" group-title="Canais | ⚽ Esportes",Xsports +HD
+http://getxc.top:80/joao2025@@@/joao20252025/2106014.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Zapping Mix Esportes" tvg-logo="http://www.fontedoscanais.com/logos/canais/zappingsports.png" group-title="Canais | ⚽ SportyNet",Zapping Mix Esportes
+http://getxc.top:80/joao2025@@@/joao20252025/2079309.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Zapping Sports 01 HD" tvg-logo="http://www.fontedoscanais.com/logos/canais/zappingsports.png" group-title="Canais | ⚽ SportyNet",Zapping Sports 01 HD
+http://getxc.top:80/joao2025@@@/joao20252025/2011336.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Zapping Sports 02 HD" tvg-logo="http://www.fontedoscanais.com/logos/canais/zappingsports.png" group-title="Canais | ⚽ SportyNet",Zapping Sports 02 HD
+http://getxc.top:80/joao2025@@@/joao20252025/2079310.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Zapping Sports 03 HD" tvg-logo="http://www.fontedoscanais.com/logos/canais/zappingsports.png" group-title="Canais | ⚽ SportyNet",Zapping Sports 03 HD
+http://getxc.top:80/joao2025@@@/joao20252025/2080173.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Zapping Sports 04 HD" tvg-logo="http://www.fontedoscanais.com/logos/canais/zappingsports.png" group-title="Canais | ⚽ SportyNet",Zapping Sports 04 HD
+http://getxc.top:80/joao2025@@@/joao20252025/2080174.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="[+SBT] Novelas" tvg-logo="https://iili.io/djkhaSt.png" group-title="Canais | ✨SBT",[+SBT] Novelas
+http://getxc.top:80/joao2025@@@/joao20252025/2037266.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="[+SBT] TV Zyn" tvg-logo="https://iili.io/djkhaSt.png" group-title="Canais | ✨SBT",[+SBT] TV Zyn
+http://getxc.top:80/joao2025@@@/joao20252025/2037261.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Canal Metropoles 01" tvg-logo="https://iili.io/KxWbVu1.png" group-title="Canais | ⚽ Esportes",Canal Metropoles 01
+http://getxc.top:80/joao2025@@@/joao20252025/2109517.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Canal Metropoles 02" tvg-logo="https://iili.io/KxWbVu1.png" group-title="Canais | ⚽ Esportes",Canal Metropoles 02
+http://getxc.top:80/joao2025@@@/joao20252025/2109518.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Canal Metropoles 03" tvg-logo="https://iili.io/KxWbVu1.png" group-title="Canais | ⚽ Esportes",Canal Metropoles 03
+http://getxc.top:80/joao2025@@@/joao20252025/2109519.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Canal Metropoles 04" tvg-logo="https://iili.io/KxWbVu1.png" group-title="Canais | ⚽ Esportes",Canal Metropoles 04
+http://getxc.top:80/joao2025@@@/joao20252025/2109520.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Canal Metropoles 05" tvg-logo="https://iili.io/KxWbVu1.png" group-title="Canais | ⚽ Esportes",Canal Metropoles 05
+http://getxc.top:80/joao2025@@@/joao20252025/2109521.m3u8
 #EXTINF:-1 tvg-name="Milionario (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/6K9xoKuc7nbsy73vCWAagnL0XX7.jpg" group-title="Filmes | ⭐ Lançamentos",Milionario (2025)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2108222.mp4
 #EXTINF:-1 tvg-name="Manas (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/fOCafeE8Wj0qpIm6RZJhg5pZHNW.jpg" group-title="Filmes | ⭐ Lançamentos",Manas (2025)
@@ -75,21 +517,21 @@ http://getxc.top:80/movie/joao2025@@@/joao20252025/2107311.mp4
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2107312.mp4
 #EXTINF:-1 tvg-name="O Mapa Que Me Leva Ate Voce (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/rr31IlQPnWx5DOfXCVfBocl2Jwv.jpg" group-title="Filmes | ⭐ Lançamentos",O Mapa Que Me Leva Ate Voce (2025)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2107210.mp4
-#EXTINF:-1 tvg-name="Amores Materialistas (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/pEIMTkBLkOAbqIzSSeLJtZiAg6L.jpg" group-title="Filmes | ⭐ Lançamentos",Amores Materialistas (2025)
+#EXTINF:-1 tvg-name="Amores Materialistas (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/pEIMTkBLkOAbqIzSSeLJtZiAg6L.jpg" group-title="Filmes | ⭐ Tops da Semana",Amores Materialistas (2025)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2106890.mp4
-#EXTINF:-1 tvg-name="Missao: Impossivel - O Acerto Final (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/yKQjrwgEkPOGel3JKT2neJzu0jh.jpg" group-title="Filmes | ⭐ Lançamentos",Missao: Impossivel - O Acerto Final (2025)
+#EXTINF:-1 tvg-name="Missao: Impossivel - O Acerto Final (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/yKQjrwgEkPOGel3JKT2neJzu0jh.jpg" group-title="Filmes | ⭐ Tops da Semana",Missao: Impossivel - O Acerto Final (2025)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2106700.mp4
-#EXTINF:-1 tvg-name="Superman (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/v8ezJI3qfEv4OYq8AWSp4inFIwE.jpg" group-title="Filmes | ⭐ Lançamentos",Superman (2025)
+#EXTINF:-1 tvg-name="Superman (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/v8ezJI3qfEv4OYq8AWSp4inFIwE.jpg" group-title="Filmes | ⭐ Tops da Semana",Superman (2025)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2106563.mp4
 #EXTINF:-1 tvg-name="Snoopy Apresenta: Um Musical de Verão (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/czkpKcxrnIqrtZdjM409n9r4JAQ.jpg" group-title="Filmes | ⭐ Lançamentos",Snoopy Apresenta: Um Musical de Verão (2025)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2106631.mp4
 #EXTINF:-1 tvg-name="Ritas (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/tyKdgqeE9thRx6xycRxetUcpLrw.jpg" group-title="Filmes | ⭐ Lançamentos",Ritas (2025)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2106553.mp4
-#EXTINF:-1 tvg-name="A Noite Sempre Chega (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/3AfvXofZ4V8sa5A6aeakd7oAPAi.jpg" group-title="Filmes | ⭐ Lançamentos",A Noite Sempre Chega (2025)
+#EXTINF:-1 tvg-name="A Noite Sempre Chega (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/3AfvXofZ4V8sa5A6aeakd7oAPAi.jpg" group-title="Filmes | ⭐ Tops da Semana",A Noite Sempre Chega (2025)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2106564.mp4
 #EXTINF:-1 tvg-name="Mononoke - O Filme: Capitulo 2 - As Cinzas da Ira (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/2ezp2AJI816izxeUACQuI2a2s0m.jpg" group-title="Filmes | ⭐ Lançamentos",Mononoke - O Filme: Capitulo 2 - As Cinzas da Ira (2025)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2106552.mp4
-#EXTINF:-1 tvg-name="Invencivel (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/4vzSdzQGvP0TIpQHNa4Ip6op0Ts.jpg" group-title="Filmes | ⭐ Lançamentos",Invencivel (2025)
+#EXTINF:-1 tvg-name="Invencivel (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/4vzSdzQGvP0TIpQHNa4Ip6op0Ts.jpg" group-title="Filmes | ⭐ Tops da Semana",Invencivel (2025)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2106551.mp4
 #EXTINF:-1 tvg-name="Os Malditos (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/gfcGAdYslNKrlbX9naKMPVUSnq6.jpg" group-title="Filmes | ⭐ Lançamentos",Os Malditos (2025)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2106366.mp4
@@ -99,7 +541,7 @@ http://getxc.top:80/movie/joao2025@@@/joao20252025/2106030.mp4
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2106016.mp4
 #EXTINF:-1 tvg-name="Um Verao Infernal (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/oLSqaM3qqi6q81JG0WViVWxueY0.jpg" group-title="Filmes | ⭐ Lançamentos",Um Verao Infernal (2025)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2106010.mp4
-#EXTINF:-1 tvg-name="Jurassic World: Recomeço (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/pSWohRJyjCCCtO7OC50uxzkwUvg.jpg" group-title="Filmes | ⭐ Lançamentos",Jurassic World: Recomeço (2025)
+#EXTINF:-1 tvg-name="Jurassic World: Recomeço (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/pSWohRJyjCCCtO7OC50uxzkwUvg.jpg" group-title="Filmes | ⭐ Tops da Semana",Jurassic World: Recomeço (2025)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2105842.mp4
 #EXTINF:-1 tvg-name="A Ultima Missao (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/d6Dxr0Euzh8cGzkJ8h7unBX3A8l.jpg" group-title="Filmes | ⭐ Lançamentos",A Ultima Missao (2025)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2105745.mp4
@@ -255,11 +697,11 @@ http://getxc.top:80/movie/joao2025@@@/joao20252025/2098582.mp4
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2098581.mp4
 #EXTINF:-1 tvg-name="Improvisaçao Perigosa (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/AdnYxdx0w1LYiXlkSDSk62MdC71.jpg" group-title="Filmes | ⭐ Lançamentos",Improvisaçao Perigosa (2025)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2098580.mp4
-#EXTINF:-1 tvg-name="Perto de Voce (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/dyfBCESr5MH4VO6bZZNjXidalzf.jpg" group-title="Filmes | ⭐ Lançamentos",Perto de Voce (2024)
+#EXTINF:-1 tvg-name="Perto de Voce (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/dyfBCESr5MH4VO6bZZNjXidalzf.jpg" group-title="Filmes | Romance",Perto de Voce (2024)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2098519.mp4
 #EXTINF:-1 tvg-name="Nossos Tempos (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/h54YFhj280h2PRFW4Up1sSrfaEc.jpg" group-title="Filmes | ⭐ Lançamentos",Nossos Tempos (2025)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2098514.mp4
-#EXTINF:-1 tvg-name="Um Pesadelo Sem Fim (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/1cic7s5p0DRdsvshzZVyEtNUJPn.jpg" group-title="Filmes | ⭐ Lançamentos",Um Pesadelo Sem Fim (2024)
+#EXTINF:-1 tvg-name="Um Pesadelo Sem Fim (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/1cic7s5p0DRdsvshzZVyEtNUJPn.jpg" group-title="Filmes | Terror",Um Pesadelo Sem Fim (2024)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2098516.mp4
 #EXTINF:-1 tvg-name="Entre Pais e Filhos (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/mBDcrIfS05tey1qF575wxMICqSy.jpg" group-title="Filmes | ⭐ Lançamentos",Entre Pais e Filhos (2024)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2098515.mp4
@@ -297,7 +739,7 @@ http://getxc.top:80/movie/joao2025@@@/joao20252025/2097338.mp4
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2097342.mp4
 #EXTINF:-1 tvg-name="Hospital Colonia: Insanidade, Tortura e Morte (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/gsBU86U1fLWnU8ycGmlYv3bXyMf.jpg" group-title="Filmes | ⭐ Lançamentos",Hospital Colonia: Insanidade, Tortura e Morte (2024)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2097341.mp4
-#EXTINF:-1 tvg-name="Armageddon: Os Carros Mais Rapidos Do Brasil (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/xdWwqMOqQ030Lqrwldb5e2QBGmL.jpg" group-title="Filmes | ⭐ Lançamentos",Armageddon: Os Carros Mais Rapidos Do Brasil (2024)
+#EXTINF:-1 tvg-name="Armageddon: Os Carros Mais Rapidos Do Brasil (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/xdWwqMOqQ030Lqrwldb5e2QBGmL.jpg" group-title="Filmes | Documentários",Armageddon: Os Carros Mais Rapidos Do Brasil (2024)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2097337.mp4
 #EXTINF:-1 tvg-name="Quebrando Regras (2025)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/zHCYXQhTgyTELLH0Wtzz12zXas7.jpg" group-title="Filmes | ⭐ Lançamentos",Quebrando Regras (2025)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2097180.mp4
@@ -751,7 +1193,7 @@ http://getxc.top:80/movie/joao2025@@@/joao20252025/2077755.mp4
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2077756.mp4
 #EXTINF:-1 tvg-name="Red Rooms (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/pTvVEWtU5A6mGGnDRVFQfB1qUjk.jpg" group-title="Filmes | ⭐ Lançamentos",Red Rooms (2024)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2077859.mp4
-#EXTINF:-1 tvg-name="Mutano: Lobo Solitario (2024)" tvg-logo="https://i.bj-share.info/bbacafafbf50f879e42cdf4e1cdde795.jpg" group-title="Filmes | ⭐ Lançamentos",Mutano: Lobo Solitario (2024)
+#EXTINF:-1 tvg-name="Mutano: Lobo Solitario (2024)" tvg-logo="https://i.bj-share.info/bbacafafbf50f879e42cdf4e1cdde795.jpg" group-title="Filmes | Animação / Infantil",Mutano: Lobo Solitario (2024)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2077744.mp4
 #EXTINF:-1 tvg-name="Nosferatu (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/fbkUfzmVzEBFSt6p7VigknREIJT.jpg" group-title="Filmes | ⭐ Lançamentos",Nosferatu (2024)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2077456.mp4
@@ -901,7 +1343,7 @@ http://getxc.top:80/movie/joao2025@@@/joao20252025/2068320.mp4
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2068323.mp4
 #EXTINF:-1 tvg-name="Perseguiçao em Taipei (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/2CQIo4IWQTsRwuFrp3PW1G1vkHB.jpg" group-title="Filmes | ⭐ Lançamentos",Perseguiçao em Taipei (2024)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2067854.mp4
-#EXTINF:-1 tvg-name="Arca de Noe (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/iI79rRbcwPKVlbEN5Sc4EwppRpa.jpg" group-title="Filmes | ⭐ Lançamentos",Arca de Noe (2024)
+#EXTINF:-1 tvg-name="Arca de Noe (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/iI79rRbcwPKVlbEN5Sc4EwppRpa.jpg" group-title="Filmes | ⭐ Tops da Semana",Arca de Noe (2024)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2067851.mp4
 #EXTINF:-1 tvg-name="Mickey e os Muitos Natais (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/aGSKSs0Mm9Pd1ECXZ4LVe6zEcHn.jpg" group-title="Filmes | ⭐ Lançamentos",Mickey e os Muitos Natais (2024)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2067564.mp4
@@ -1159,8 +1601,6 @@ http://getxc.top:80/movie/joao2025@@@/joao20252025/2050565.mp4
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2050562.mp4
 #EXTINF:-1 tvg-name="From the River to the Sea - Um Filme Sobre a Guerra em Israel (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/oLhuaXYLFPxA0YNtQsibNk10udc.jpg" group-title="Filmes | ⭐ Lançamentos",From the River to the Sea - Um Filme Sobre a Guerra em Israel (2024)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2050461.mp4
-#EXTINF:-1 tvg-name="O Armario Magico (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/8cZtxGSSlsT4V7688xqPNFVhgHx.jpg" group-title="Filmes | ⭐ Lançamentos",O Armario Magico (2024)
-http://getxc.top:80/movie/joao2025@@@/joao20252025/2050464.mp4
 #EXTINF:-1 tvg-name="O Silencio das Rosas (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/gEd4UWo34SHpzrjq1kmZpzNEJKD.jpg" group-title="Filmes | ⭐ Lançamentos",O Silencio das Rosas (2024)
 http://getxc.top:80/movie/joao2025@@@/joao20252025/2050466.mp4
 #EXTINF:-1 tvg-name="Coringa: Delirio a Dois (2024)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/miLzGpMR4SyeaScG32kc2oPtmu8.jpg" group-title="Filmes | ⭐ Lançamentos",Coringa: Delirio a Dois (2024)
